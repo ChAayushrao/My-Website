@@ -3,512 +3,608 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Urban Wear | Premium Streetwear</title>
+<title>URBANWEAR — Fashion Store</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-body {
-    background: #08080c;
-    color: white;
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#08080b;
+    color:#fff;
 }
 
 /* NAVBAR */
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(8,8,12,0.92);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid #222;
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(8,8,11,.94);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid #24242d;
 }
 
-.navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 18px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-    letter-spacing: 2px;
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:2px;
 }
 
-.logo span {
-    color: #a855f7;
+.logo span{
+    color:#a855f7;
 }
 
-.nav-buttons {
-    display: flex;
-    gap: 10px;
+.navlinks{
+    display:flex;
+    gap:22px;
 }
 
-.nav-btn {
-    border: none;
-    background: #15151c;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .3s;
+.navlinks button{
+    background:none;
+    border:0;
+    color:#ddd;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.nav-btn:hover {
-    background: #a855f7;
-    transform: translateY(-2px);
+.navlinks button:hover{
+    color:#a855f7;
+}
+
+.nav-actions{
+    display:flex;
+    gap:8px;
+}
+
+.nav-btn{
+    background:#17171e;
+    border:1px solid #2c2c35;
+    color:white;
+    padding:10px 13px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.nav-btn:hover{
+    background:#a855f7;
 }
 
 /* HERO */
 
-.hero {
-    min-height: 550px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 50px 20px;
+.hero{
+    min-height:600px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 20px;
 
     background:
-        radial-gradient(circle at 50% 30%, #54208a 0%, transparent 35%),
-        linear-gradient(135deg,#08080c,#15101d);
+    radial-gradient(circle at 50% 20%,#6425a0 0%,transparent 30%),
+    radial-gradient(circle at 20% 80%,#142c69 0%,transparent 25%),
+    linear-gradient(135deg,#08080b,#15101c);
 }
 
-.hero h1 {
-    font-size: clamp(45px,8vw,90px);
-    line-height: 1;
-    margin-bottom: 20px;
+.hero h1{
+    font-size:clamp(48px,9vw,105px);
+    line-height:.9;
+    font-weight:1000;
 }
 
-.hero h1 span {
-    color: #a855f7;
+.hero h1 span{
+    color:#a855f7;
 }
 
-.hero p {
-    color: #bbb;
-    font-size: 18px;
-    margin-bottom: 30px;
+.hero p{
+    color:#aaa;
+    font-size:19px;
+    margin:28px 0;
 }
 
-.hero button {
-    background: #a855f7;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 12px;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-    transition: .3s;
+.hero-btn{
+    padding:16px 34px;
+    border:0;
+    border-radius:12px;
+    background:#a855f7;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.hero button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px #a855f7;
+.hero-btn:hover{
+    transform:translateY(-3px) scale(1.04);
+    box-shadow:0 0 35px #a855f7;
+}
+
+/* CATEGORIES */
+
+.categories{
+    max-width:1400px;
+    margin:auto;
+    padding:35px 25px 10px;
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+}
+
+.cat{
+    white-space:nowrap;
+    padding:12px 20px;
+    background:#15151c;
+    border:1px solid #292932;
+    border-radius:30px;
+    color:#ddd;
+    cursor:pointer;
+}
+
+.cat:hover,
+.cat.active{
+    background:#a855f7;
+    border-color:#a855f7;
+    color:white;
 }
 
 /* SEARCH */
 
-.search-area {
-    max-width: 1200px;
-    margin: 40px auto 20px;
-    padding: 0 25px;
+.search-box{
+    max-width:1400px;
+    margin:25px auto;
+    padding:0 25px;
 }
 
-.search {
-    width: 100%;
-    padding: 16px 20px;
-    background: #13131a;
-    border: 1px solid #292932;
-    border-radius: 12px;
-    color: white;
-    outline: none;
-    font-size: 16px;
+.search{
+    width:100%;
+    padding:17px 20px;
+    background:#131319;
+    border:1px solid #30303a;
+    color:white;
+    border-radius:12px;
+    outline:none;
+    font-size:16px;
 }
 
-.search:focus {
-    border-color: #a855f7;
+.search:focus{
+    border-color:#a855f7;
 }
 
 /* PRODUCTS */
 
-.section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 30px 25px 80px;
+.store{
+    max-width:1400px;
+    margin:auto;
+    padding:20px 25px 90px;
 }
 
-.section-title {
-    font-size: 35px;
-    margin-bottom: 30px;
+.title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
 }
 
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-    gap: 25px;
+.title-row h2{
+    font-size:35px;
 }
 
-.product {
-    background: #111118;
-    border: 1px solid #25252d;
-    border-radius: 18px;
-    overflow: hidden;
-    transition: .35s;
-    position: relative;
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:22px;
 }
 
-.product:hover {
-    transform: translateY(-8px);
-    border-color: #a855f7;
-    box-shadow: 0 15px 40px rgba(168,85,247,.15);
+.product{
+    background:#111117;
+    border:1px solid #25252e;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    transition:.3s;
 }
 
-.product-image {
-    height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg,#1c1c25,#09090d);
-    font-size: 100px;
+.product:hover{
+    transform:translateY(-7px);
+    border-color:#a855f7;
+    box-shadow:0 15px 40px rgba(168,85,247,.15);
 }
 
-.sale {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #ef4444;
-    padding: 6px 10px;
-    border-radius: 7px;
-    font-size: 12px;
-    font-weight: bold;
+.product-img{
+    height:280px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:100px;
+    background:linear-gradient(135deg,#1b1b24,#09090d);
 }
 
-.heart {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: #1b1b23;
-    border: none;
-    color: white;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
+.sale{
+    position:absolute;
+    top:12px;
+    left:12px;
+    background:#ef4444;
+    padding:6px 10px;
+    border-radius:7px;
+    font-size:11px;
+    font-weight:bold;
 }
 
-.heart.active {
-    color: #ff4d6d;
+.wish{
+    position:absolute;
+    top:12px;
+    right:12px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:0;
+    background:#191920;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
 }
 
-.product-info {
-    padding: 20px;
+.wish.liked{
+    color:#ff4d6d;
 }
 
-.product-info h3 {
-    margin-bottom: 8px;
+.product-info{
+    padding:18px;
 }
 
-.rating {
-    color: #facc15;
-    margin-bottom: 12px;
+.product-info h3{
+    margin-bottom:7px;
 }
 
-.price {
-    font-size: 22px;
-    font-weight: bold;
+.stars{
+    color:#facc15;
+    margin-bottom:10px;
 }
 
-.old-price {
-    color: #777;
-    text-decoration: line-through;
-    margin-left: 8px;
-    font-size: 14px;
+.category-label{
+    color:#888;
+    font-size:13px;
+    margin-bottom:10px;
 }
 
-.product-info button {
-    width: 100%;
-    margin-top: 15px;
-    padding: 13px;
-    border: none;
-    border-radius: 10px;
-    background: #a855f7;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .3s;
+.price{
+    font-size:21px;
+    font-weight:bold;
 }
 
-.product-info button:hover {
-    background: #9333ea;
+.old{
+    color:#777;
+    text-decoration:line-through;
+    font-size:13px;
+    margin-left:7px;
 }
 
-/* MODAL */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    inset: 0;
-    background: rgba(0,0,0,.75);
-    backdrop-filter: blur(8px);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+.view{
+    width:100%;
+    padding:13px;
+    margin-top:15px;
+    border:0;
+    border-radius:10px;
+    background:#a855f7;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.modal.show {
-    display: flex;
+/* MODALS */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(8px);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
 }
 
-.modal-box {
-    background: #111118;
-    border: 1px solid #30303a;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 650px;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 25px;
-    animation: pop .3s ease;
+.modal.show{
+    display:flex;
 }
 
-@keyframes pop {
-    from {
-        opacity: 0;
-        transform: scale(.9);
+.modal-box{
+    width:100%;
+    max-width:700px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:#111117;
+    border:1px solid #33333d;
+    border-radius:20px;
+    padding:25px;
+    animation:appear .25s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:scale(.93);
     }
-    to {
-        opacity: 1;
-        transform: scale(1);
+    to{
+        opacity:1;
+        transform:scale(1);
     }
 }
 
-.close {
-    float: right;
-    border: none;
-    background: #22222b;
-    color: white;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    cursor: pointer;
+.close{
+    float:right;
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:#24242c;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
 }
 
-/* PRODUCT OPTIONS */
-
-.option {
-    margin-top: 20px;
+.modal-title{
+    font-size:28px;
+    margin-bottom:20px;
 }
 
-.option label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
+/* OPTIONS */
+
+.option{
+    margin-top:20px;
 }
 
-.option select {
-    width: 100%;
-    padding: 13px;
-    background: #1b1b24;
-    border: 1px solid #33333d;
-    color: white;
-    border-radius: 10px;
+.option label{
+    display:block;
+    margin-bottom:9px;
+    font-weight:bold;
 }
 
-.colors {
-    display: flex;
-    gap: 10px;
+select{
+    width:100%;
+    padding:13px;
+    background:#1b1b23;
+    color:white;
+    border:1px solid #34343e;
+    border-radius:10px;
 }
 
-.color {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    cursor: pointer;
+.colors{
+    display:flex;
+    gap:10px;
 }
 
-.color.selected {
-    border-color: white;
-    transform: scale(1.1);
+.color{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:3px solid transparent;
+    cursor:pointer;
 }
 
-.black { background: black; }
-.white { background: white; }
-.blue { background: #2563eb; }
-.red { background: #dc2626; }
-.green { background: #16a34a; }
-
-.designs {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 10px;
+.color.selected{
+    border-color:white;
+    transform:scale(1.1);
 }
 
-.design {
-    padding: 15px;
-    background: #1b1b24;
-    border: 1px solid #333;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
+.black{background:#000}
+.white{background:#fff}
+.blue{background:#2563eb}
+.red{background:#dc2626}
+.green{background:#16a34a}
+.pink{background:#ec4899}
+.purple{background:#9333ea}
+
+.designs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
 }
 
-.design.selected {
-    border-color: #a855f7;
-    background: #24152f;
+.design{
+    padding:13px;
+    background:#1b1b23;
+    border:1px solid #333;
+    border-radius:10px;
+    cursor:pointer;
+    text-align:center;
 }
 
-.quantity {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.design.selected{
+    border-color:#a855f7;
+    background:#291535;
 }
 
-.quantity button {
-    width: 40px;
-    height: 40px;
-    border: none;
-    border-radius: 8px;
-    background: #a855f7;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:18px;
 }
 
-.quantity span {
-    font-size: 20px;
+.quantity button{
+    width:40px;
+    height:40px;
+    border:0;
+    border-radius:8px;
+    background:#a855f7;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
 }
 
-.total {
-    margin-top: 25px;
-    padding: 20px;
-    background: #191922;
-    border-radius: 12px;
-    font-size: 22px;
-    font-weight: bold;
+.quantity span{
+    font-size:20px;
 }
 
-.add-cart {
-    width: 100%;
-    margin-top: 15px;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    background: #a855f7;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+.total{
+    margin-top:25px;
+    padding:18px;
+    border-radius:12px;
+    background:#1a1a22;
+    font-size:23px;
+    font-weight:bold;
+}
+
+.primary{
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    border:0;
+    border-radius:10px;
+    background:#a855f7;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 /* CART */
 
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #292932;
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:17px 0;
+    border-bottom:1px solid #292932;
 }
 
-.remove {
-    background: #ef4444;
-    color: white;
-    border: none;
-    padding: 7px 10px;
-    border-radius: 7px;
-    cursor: pointer;
+.cart-details{
+    color:#999;
+    font-size:13px;
+    line-height:1.6;
 }
 
-.cart-total {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 20px;
+.remove{
+    background:#ef4444;
+    color:white;
+    border:0;
+    padding:7px 10px;
+    border-radius:7px;
+    cursor:pointer;
 }
 
-.checkout {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    background: #22c55e;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
+.cart-total{
+    font-size:25px;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+.checkout-btn{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    border:0;
+    border-radius:10px;
+    background:#22c55e;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 /* CHECKOUT */
 
-.checkout input {
-    width: 100%;
-    padding: 14px;
-    margin-top: 12px;
-    background: #1a1a22;
-    border: 1px solid #333;
-    border-radius: 10px;
-    color: white;
+.form-input{
+    width:100%;
+    margin-top:12px;
+    padding:14px;
+    background:#1a1a22;
+    border:1px solid #333;
+    border-radius:9px;
+    color:white;
+    outline:none;
 }
 
-.pay {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 10px;
-    background: #a855f7;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+.payment-methods{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.payment{
+    padding:15px;
+    background:#1a1a22;
+    border:1px solid #333;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+}
+
+.payment.selected{
+    border-color:#a855f7;
+    background:#291535;
+}
+
+.demo-note{
+    margin-top:15px;
+    padding:12px;
+    background:#201c0c;
+    color:#facc15;
+    border-radius:9px;
+    font-size:13px;
 }
 
 /* FOOTER */
 
-footer {
-    text-align: center;
-    padding: 40px;
-    background: #050507;
-    color: #777;
+footer{
+    padding:50px 20px;
+    text-align:center;
+    background:#050507;
+    color:#777;
 }
 
-@media(max-width:600px) {
+@media(max-width:800px){
 
-    .navbar {
-        padding: 15px;
+    .navlinks{
+        display:none;
     }
 
-    .logo {
-        font-size: 20px;
+    .navbar{
+        padding:15px;
     }
 
-    .nav-btn {
-        padding: 8px;
+    .products{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .hero {
-        min-height: 450px;
+}
+
+@media(max-width:550px){
+
+    .products{
+        grid-template-columns:1fr;
     }
 
-    .products {
-        grid-template-columns: 1fr;
+    .designs{
+        grid-template-columns:1fr 1fr;
     }
 
-    .designs {
-        grid-template-columns: 1fr 1fr;
+    .payment-methods{
+        grid-template-columns:1fr;
     }
+
+    .hero{
+        min-height:500px;
+    }
+
 }
 </style>
 </head>
@@ -523,12 +619,18 @@ footer {
 URBAN<span>WEAR</span>
 </div>
 
-<div class="nav-buttons">
-<button class="nav-btn" onclick="showWishlist()">❤️ <span id="wishCount">0</span></button>
+<nav class="navlinks">
+<button onclick="filterCategory('All')">HOME</button>
+<button onclick="filterCategory('Men')">MEN</button>
+<button onclick="filterCategory('Women')">WOMEN</button>
+<button onclick="filterCategory('Accessories')">ACCESSORIES</button>
+<button onclick="filterCategory('Footwear')">FOOTWEAR</button>
+<button onclick="filterCategory('Sale')">SALE</button>
+</nav>
 
-<button class="nav-btn" onclick="showCart()">
-🛒 <span id="cartCount">0</span>
-</button>
+<div class="nav-actions">
+<button class="nav-btn" onclick="showWishlist()">❤️ <span id="wishCount">0</span></button>
+<button class="nav-btn" onclick="showCart()">🛒 <span id="cartCount">0</span></button>
 </div>
 
 </div>
@@ -542,10 +644,11 @@ URBAN<span>WEAR</span>
 
 <h1>WEAR YOUR<br><span>ATTITUDE.</span></h1>
 
-<p>Premium streetwear made for your style.</p>
+<p>Streetwear. Fashion. Your style.</p>
 
-<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
-SHOP NOW
+<button class="hero-btn"
+onclick="document.getElementById('store').scrollIntoView()">
+SHOP COLLECTION
 </button>
 
 </div>
@@ -553,21 +656,36 @@ SHOP NOW
 </section>
 
 
-<div class="search-area">
+<div class="categories">
 
-<input
-class="search"
-id="search"
-placeholder="🔍 Search for T-shirts, hoodies, jackets..."
-oninput="searchProducts()"
->
+<button class="cat active" onclick="filterCategory('All')">All</button>
+<button class="cat" onclick="filterCategory('Men')">Men</button>
+<button class="cat" onclick="filterCategory('Women')">Women</button>
+<button class="cat" onclick="filterCategory('Accessories')">Accessories</button>
+<button class="cat" onclick="filterCategory('Footwear')">Footwear</button>
+<button class="cat" onclick="filterCategory('Sale')">🔥 Sale</button>
 
 </div>
 
 
-<section class="section" id="shop">
+<div class="search-box">
 
-<h2 class="section-title">🔥 Latest Collection</h2>
+<input
+class="search"
+id="search"
+placeholder="🔍 Search T-shirts, hoodies, dresses, caps..."
+oninput="searchProducts()">
+
+</div>
+
+
+<section class="store" id="store">
+
+<div class="title-row">
+
+<h2>🔥 Collection</h2>
+
+</div>
 
 <div class="products" id="products"></div>
 
@@ -576,10 +694,14 @@ oninput="searchProducts()"
 
 <footer>
 
-<p>© 2026 UrbanWear. All rights reserved.</p>
+<h2>URBANWEAR</h2>
 
-<p style="margin-top:10px;">
-Premium streetwear • Designed for you
+<p style="margin-top:12px">
+Fashion made for your attitude.
+</p>
+
+<p style="margin-top:20px">
+© 2026 UrbanWear
 </p>
 
 </footer>
@@ -593,20 +715,19 @@ Premium streetwear • Designed for you
 
 <button class="close" onclick="closeModal()">×</button>
 
-<h2 id="modalName"></h2>
+<h2 class="modal-title" id="modalName"></h2>
 
-<p id="modalRating" class="rating"></p>
+<div class="stars" id="modalRating"></div>
 
 <div class="option">
 
 <label>Style / Type</label>
 
 <select id="style" onchange="updatePrice()">
-
 <option value="0">Regular</option>
-<option value="200">Premium (+₹200)</option>
-<option value="300">Oversized (+₹300)</option>
-
+<option value="150">Premium (+₹150)</option>
+<option value="250">Oversized (+₹250)</option>
+<option value="350">Luxury (+₹350)</option>
 </select>
 
 </div>
@@ -617,13 +738,11 @@ Premium streetwear • Designed for you
 <label>Size</label>
 
 <select id="size">
-
 <option>S</option>
 <option>M</option>
 <option>L</option>
 <option>XL</option>
 <option>XXL</option>
-
 </select>
 
 </div>
@@ -636,20 +755,16 @@ Premium streetwear • Designed for you
 <div class="colors">
 
 <div class="color black selected" onclick="selectColor(this,'Black')"></div>
-
 <div class="color white" onclick="selectColor(this,'White')"></div>
-
 <div class="color blue" onclick="selectColor(this,'Blue')"></div>
-
 <div class="color red" onclick="selectColor(this,'Red')"></div>
-
 <div class="color green" onclick="selectColor(this,'Green')"></div>
+<div class="color pink" onclick="selectColor(this,'Pink')"></div>
+<div class="color purple" onclick="selectColor(this,'Purple')"></div>
 
 </div>
 
-<p id="selectedColor" style="margin-top:10px;color:#aaa;">
-Black
-</p>
+<p id="selectedColor" style="margin-top:8px;color:#999">Black</p>
 
 </div>
 
@@ -660,29 +775,12 @@ Black
 
 <div class="designs">
 
-<div class="design selected" onclick="selectDesign(this,'Classic')">
-Classic
-</div>
-
-<div class="design" onclick="selectDesign(this,'Lightning')">
-⚡ Lightning
-</div>
-
-<div class="design" onclick="selectDesign(this,'Dragon')">
-🐉 Dragon
-</div>
-
-<div class="design" onclick="selectDesign(this,'Skull')">
-💀 Skull
-</div>
-
-<div class="design" onclick="selectDesign(this,'Galaxy')">
-🌌 Galaxy
-</div>
-
-<div class="design" onclick="selectDesign(this,'Minimal')">
-Minimal
-</div>
+<div class="design selected" onclick="selectDesign(this,'Classic')">Classic</div>
+<div class="design" onclick="selectDesign(this,'Lightning')">⚡ Lightning</div>
+<div class="design" onclick="selectDesign(this,'Dragon')">🐉 Dragon</div>
+<div class="design" onclick="selectDesign(this,'Galaxy')">🌌 Galaxy</div>
+<div class="design" onclick="selectDesign(this,'Flame')">🔥 Flame</div>
+<div class="design" onclick="selectDesign(this,'Minimal')">Minimal</div>
 
 </div>
 
@@ -708,11 +806,11 @@ Minimal
 
 <div class="total">
 
-Total: ₹<span id="modalPrice">699</span>
+Total: ₹<span id="modalPrice">0</span>
 
 </div>
 
-<button class="add-cart" onclick="addToCart()">
+<button class="primary" onclick="addToCart()">
 🛒 ADD TO CART
 </button>
 
@@ -721,7 +819,7 @@ Total: ₹<span id="modalPrice">699</span>
 </div>
 
 
-<!-- CART MODAL -->
+<!-- CART -->
 
 <div class="modal" id="cartModal">
 
@@ -729,7 +827,7 @@ Total: ₹<span id="modalPrice">699</span>
 
 <button class="close" onclick="closeCart()">×</button>
 
-<h2>🛒 Your Cart</h2>
+<h2 class="modal-title">🛒 Your Cart</h2>
 
 <div id="cartItems"></div>
 
@@ -737,8 +835,8 @@ Total: ₹<span id="modalPrice">699</span>
 Total: ₹<span id="cartTotal">0</span>
 </div>
 
-<button class="checkout" onclick="openCheckout()">
-💳 CHECKOUT
+<button class="checkout-btn" onclick="openCheckout()">
+CHECKOUT
 </button>
 
 </div>
@@ -754,7 +852,7 @@ Total: ₹<span id="cartTotal">0</span>
 
 <button class="close" onclick="closeWishlist()">×</button>
 
-<h2>❤️ Wishlist</h2>
+<h2 class="modal-title">❤️ Wishlist</h2>
 
 <div id="wishlistItems"></div>
 
@@ -767,30 +865,65 @@ Total: ₹<span id="cartTotal">0</span>
 
 <div class="modal" id="checkoutModal">
 
-<div class="modal-box checkout">
+<div class="modal-box">
 
 <button class="close" onclick="closeCheckout()">×</button>
 
-<h2>📦 Checkout</h2>
+<h2 class="modal-title">📦 Checkout</h2>
 
-<p style="margin-top:10px;color:#aaa;">
-Enter your details below.
-</p>
+<input class="form-input" placeholder="Full name">
 
-<input placeholder="Full Name">
+<input class="form-input" placeholder="Phone number">
 
-<input placeholder="Phone Number">
+<input class="form-input" placeholder="Email">
 
-<input placeholder="Email">
+<input class="form-input" placeholder="Address">
 
-<input placeholder="Delivery Address">
+<input class="form-input" placeholder="City">
 
-<input placeholder="City">
+<input class="form-input" placeholder="PIN code">
 
-<input placeholder="PIN Code">
 
-<button class="pay" onclick="placeOrder()">
-PLACE ORDER
+<div class="option">
+
+<label>Payment Method</label>
+
+<div class="payment-methods">
+
+<button class="payment selected"
+onclick="selectPayment(this)">
+💵 Cash on Delivery
+</button>
+
+<button class="payment"
+onclick="selectPayment(this)">
+📱 UPI
+</button>
+
+<button class="payment"
+onclick="selectPayment(this)">
+💳 Card
+</button>
+
+<button class="payment"
+onclick="selectPayment(this)">
+🏦 Net Banking
+</button>
+
+</div>
+
+</div>
+
+
+<div class="demo-note">
+
+⚠️ Demo checkout: no real payment information is collected or processed.
+
+</div>
+
+
+<button class="primary" onclick="placeOrder()">
+PLACE DEMO ORDER
 </button>
 
 </div>
@@ -800,118 +933,362 @@ PLACE ORDER
 
 <script>
 
+/* PRODUCTS */
+
 const products = [
 
 {
 name:"Classic T-Shirt",
+category:"Men",
+type:"T-Shirt",
 price:699,
 old:899,
 rating:"★★★★★",
-emoji:"👕"
+emoji:"👕",
+sale:true
+},
+
+{
+name:"Oversized Street T-Shirt",
+category:"Men",
+type:"Oversized T-Shirt",
+price:999,
+old:1299,
+rating:"★★★★★",
+emoji:"👕",
+sale:true
+},
+
+{
+name:"Premium Polo",
+category:"Men",
+type:"Polo",
+price:899,
+old:1099,
+rating:"★★★★☆",
+emoji:"👕",
+sale:false
+},
+
+{
+name:"Urban Shirt",
+category:"Men",
+type:"Shirt",
+price:999,
+old:1299,
+rating:"★★★★★",
+emoji:"👔",
+sale:false
 },
 
 {
 name:"Premium Hoodie",
+category:"Men",
+type:"Hoodie",
 price:1299,
 old:1599,
 rating:"★★★★★",
-emoji:"🧥"
+emoji:"🧥",
+sale:true
 },
 
 {
-name:"Oversized Street Tee",
-price:999,
-old:1299,
+name:"Oversized Hoodie",
+category:"Men",
+type:"Hoodie",
+price:1599,
+old:1999,
+rating:"★★★★★",
+emoji:"🧥",
+sale:true
+},
+
+{
+name:"Street Sweatshirt",
+category:"Men",
+type:"Sweatshirt",
+price:1099,
+old:1399,
 rating:"★★★★☆",
-emoji:"👕"
+emoji:"🧥",
+sale:false
 },
 
 {
 name:"Urban Jacket",
+category:"Men",
+type:"Jacket",
 price:1799,
 old:2199,
 rating:"★★★★★",
-emoji:"🥼"
+emoji:"🥼",
+sale:true
 },
 
 {
-name:"Street Cargo",
+name:"Cargo Pants",
+category:"Men",
+type:"Cargo",
 price:1199,
 old:1499,
-rating:"★★★★☆",
-emoji:"👖"
+rating:"★★★★★",
+emoji:"👖",
+sale:false
 },
 
 {
-name:"Premium Sweatshirt",
-price:1099,
-old:1399,
+name:"Classic Jeans",
+category:"Men",
+type:"Jeans",
+price:1299,
+old:1599,
+rating:"★★★★☆",
+emoji:"👖",
+sale:false
+},
+
+{
+name:"Women's Crop Top",
+category:"Women",
+type:"Top",
+price:699,
+old:899,
 rating:"★★★★★",
-emoji:"🧥"
+emoji:"👚",
+sale:true
+},
+
+{
+name:"Women's Hoodie",
+category:"Women",
+type:"Hoodie",
+price:1299,
+old:1599,
+rating:"★★★★★",
+emoji:"🧥",
+sale:false
+},
+
+{
+name:"Women's Oversized Tee",
+category:"Women",
+type:"T-Shirt",
+price:899,
+old:1199,
+rating:"★★★★☆",
+emoji:"👕",
+sale:true
+},
+
+{
+name:"Elegant Dress",
+category:"Women",
+type:"Dress",
+price:1499,
+old:1899,
+rating:"★★★★★",
+emoji:"👗",
+sale:true
+},
+
+{
+name:"Party Dress",
+category:"Women",
+type:"Dress",
+price:1799,
+old:2299,
+rating:"★★★★★",
+emoji:"👗",
+sale:false
+},
+
+{
+name:"Women's Skirt",
+category:"Women",
+type:"Skirt",
+price:999,
+old:1299,
+rating:"★★★★☆",
+emoji:"👗",
+sale:false
+},
+
+{
+name:"Women's Cargo",
+category:"Women",
+type:"Cargo",
+price:1199,
+old:1499,
+rating:"★★★★★",
+emoji:"👖",
+sale:false
+},
+
+{
+name:"Women's Jacket",
+category:"Women",
+type:"Jacket",
+price:1699,
+old:2099,
+rating:"★★★★★",
+emoji:"🥼",
+sale:true
+},
+
+{
+name:"Classic Cap",
+category:"Accessories",
+type:"Cap",
+price:399,
+old:499,
+rating:"★★★★★",
+emoji:"🧢",
+sale:false
+},
+
+{
+name:"Premium Cap",
+category:"Accessories",
+type:"Cap",
+price:599,
+old:799,
+rating:"★★★★☆",
+emoji:"🧢",
+sale:true
+},
+
+{
+name:"Urban Backpack",
+category:"Accessories",
+type:"Bag",
+price:999,
+old:1299,
+rating:"★★★★★",
+emoji:"🎒",
+sale:false
+},
+
+{
+name:"Street Sunglasses",
+category:"Accessories",
+type:"Sunglasses",
+price:499,
+old:699,
+rating:"★★★★☆",
+emoji:"🕶️",
+sale:true
+},
+
+{
+name:"Urban Sneakers",
+category:"Footwear",
+type:"Sneakers",
+price:1999,
+old:2499,
+rating:"★★★★★",
+emoji:"👟",
+sale:true
+},
+
+{
+name:"Street Slides",
+category:"Footwear",
+type:"Slides",
+price:699,
+old:899,
+rating:"★★★★☆",
+emoji:"🩴",
+sale:false
+},
+
+{
+name:"Premium Boots",
+category:"Footwear",
+type:"Boots",
+price:2499,
+old:2999,
+rating:"★★★★★",
+emoji:"🥾",
+sale:true
 }
 
 ];
 
 
-let cart = [];
+/* VARIABLES */
 
-let wishlist = [];
+let currentProduct=null;
+let currentProducts=products;
 
-let currentProduct = null;
+let cart=[];
+let wishlist=[];
 
-let quantity = 1;
-
-let selectedColor = "Black";
-
-let selectedDesign = "Classic";
+let quantity=1;
+let selectedColor="Black";
+let selectedDesign="Classic";
 
 
-function displayProducts(list = products) {
+/* DISPLAY */
 
-const container = document.getElementById("products");
+function displayProducts(list){
 
-container.innerHTML = "";
+currentProducts=list;
 
-list.forEach((product,index) => {
+const box=document.getElementById("products");
 
-container.innerHTML += `
+box.innerHTML="";
+
+if(list.length===0){
+
+box.innerHTML=`
+<div style="grid-column:1/-1;text-align:center;padding:60px;color:#888">
+<h2>No products found 😕</h2>
+<p>Try another search.</p>
+</div>
+`;
+
+return;
+}
+
+list.forEach((p,index)=>{
+
+let realIndex=products.indexOf(p);
+
+box.innerHTML+=`
 
 <div class="product">
 
-<div class="sale">
-SALE
-</div>
+${p.sale ? `<div class="sale">SALE</div>` : ""}
 
-<button class="heart"
-onclick="toggleWishlist(${index},this)">
-♡
+<button
+class="wish ${wishlist.includes(realIndex)?"liked":""}"
+onclick="toggleWishlist(${realIndex},this)">
+${wishlist.includes(realIndex)?"♥":"♡"}
 </button>
 
-<div class="product-image">
-${product.emoji}
+<div class="product-img">
+${p.emoji}
 </div>
 
 <div class="product-info">
 
-<h3>${product.name}</h3>
-
-<div class="rating">
-${product.rating}
+<div class="category-label">
+${p.category} • ${p.type}
 </div>
+
+<h3>${p.name}</h3>
+
+<div class="stars">${p.rating}</div>
 
 <div>
 
-<span class="price">
-₹${product.price}
-</span>
+<span class="price">₹${p.price}</span>
 
-<span class="old-price">
-₹${product.old}
-</span>
+<span class="old">₹${p.old}</span>
 
 </div>
 
-<button onclick="openProduct(${index})">
+<button class="view" onclick="openProduct(${realIndex})">
 VIEW OPTIONS
 </button>
 
@@ -926,113 +1303,170 @@ VIEW OPTIONS
 }
 
 
-function openProduct(index) {
+/* CATEGORY */
 
-currentProduct = products[index];
+function filterCategory(category){
 
-quantity = 1;
+document.querySelectorAll(".cat")
+.forEach(x=>x.classList.remove("active"));
 
-selectedColor = "Black";
+if(category==="All"){
 
-selectedDesign = "Classic";
+displayProducts(products);
 
-document.getElementById("modalName").innerText =
+}else if(category==="Sale"){
+
+displayProducts(
+products.filter(p=>p.sale)
+);
+
+}else{
+
+displayProducts(
+products.filter(p=>p.category===category)
+);
+
+}
+
+document.getElementById("store")
+.scrollIntoView({behavior:"smooth"});
+
+}
+
+
+/* SEARCH */
+
+function searchProducts(){
+
+let q=document
+.getElementById("search")
+.value
+.toLowerCase();
+
+let filtered=products.filter(p=>
+
+p.name.toLowerCase().includes(q) ||
+p.category.toLowerCase().includes(q) ||
+p.type.toLowerCase().includes(q)
+
+);
+
+displayProducts(filtered);
+
+}
+
+
+/* PRODUCT */
+
+function openProduct(index){
+
+currentProduct=products[index];
+
+quantity=1;
+selectedColor="Black";
+selectedDesign="Classic";
+
+document.getElementById("modalName").innerText=
 currentProduct.name;
 
-document.getElementById("modalRating").innerText =
+document.getElementById("modalRating").innerText=
 currentProduct.rating;
 
-document.getElementById("quantity").innerText = quantity;
+document.getElementById("quantity").innerText="1";
 
-document.getElementById("selectedColor").innerText =
-"Black";
+document.getElementById("selectedColor").innerText="Black";
 
-document.getElementById("style").value = "0";
+document.getElementById("style").value="0";
 
-document.getElementById("modalPrice").innerText =
+document.getElementById("modalPrice").innerText=
 currentProduct.price;
 
-document.getElementById("productModal").classList.add("show");
+document.getElementById("productModal")
+.classList.add("show");
 
 }
 
 
-function closeModal() {
+function closeModal(){
 
-document.getElementById("productModal").classList.remove("show");
+document.getElementById("productModal")
+.classList.remove("show");
 
 }
 
 
-function updatePrice() {
+function updatePrice(){
 
-let extra =
+let extra=
 Number(document.getElementById("style").value);
 
-let price =
-(currentProduct.price + extra) * quantity;
+let total=
+(currentProduct.price+extra)*quantity;
 
-document.getElementById("modalPrice").innerText =
-price;
+document.getElementById("modalPrice")
+.innerText=total;
 
 }
 
 
-function changeQuantity(amount) {
+function changeQuantity(amount){
 
-quantity += amount;
+quantity+=amount;
 
-if(quantity < 1) quantity = 1;
+if(quantity<1)quantity=1;
+if(quantity>10)quantity=10;
 
-if(quantity > 10) quantity = 10;
-
-document.getElementById("quantity").innerText =
-quantity;
+document.getElementById("quantity")
+.innerText=quantity;
 
 updatePrice();
 
 }
 
 
-function selectColor(element,color) {
+function selectColor(el,color){
 
 document.querySelectorAll(".color")
-.forEach(x => x.classList.remove("selected"));
+.forEach(x=>x.classList.remove("selected"));
 
-element.classList.add("selected");
+el.classList.add("selected");
 
-selectedColor = color;
+selectedColor=color;
 
-document.getElementById("selectedColor").innerText =
-color;
+document.getElementById("selectedColor")
+.innerText=color;
 
 }
 
 
-function selectDesign(element,design) {
+function selectDesign(el,design){
 
 document.querySelectorAll(".design")
-.forEach(x => x.classList.remove("selected"));
+.forEach(x=>x.classList.remove("selected"));
 
-element.classList.add("selected");
+el.classList.add("selected");
 
-selectedDesign = design;
+selectedDesign=design;
 
 }
 
 
-function addToCart() {
+/* CART */
 
-let styleSelect =
+function addToCart(){
+
+let styleSelect=
 document.getElementById("style");
 
-let styleName =
-styleSelect.options[styleSelect.selectedIndex].text;
+let styleName=
+styleSelect.options[
+styleSelect.selectedIndex
+].text;
 
-let extra =
+let extra=
 Number(styleSelect.value);
 
-let item = {
+cart.push({
 
 name:currentProduct.name,
 
@@ -1046,34 +1480,32 @@ design:selectedDesign,
 
 quantity:quantity,
 
-price:(currentProduct.price + extra)
+price:currentProduct.price+extra
 
-};
-
-cart.push(item);
+});
 
 updateCartCount();
 
 closeModal();
 
-alert("🛒 Added to cart!");
+alert("🛒 Added to your cart!");
 
 }
 
 
-function updateCartCount() {
+function updateCartCount(){
 
-let total = cart.reduce(
-(sum,item) => sum + item.quantity,0
+let count=cart.reduce(
+(sum,item)=>sum+item.quantity,0
 );
 
-document.getElementById("cartCount").innerText =
-total;
+document.getElementById("cartCount")
+.innerText=count;
 
 }
 
 
-function showCart() {
+function showCart(){
 
 renderCart();
 
@@ -1083,7 +1515,7 @@ document.getElementById("cartModal")
 }
 
 
-function closeCart() {
+function closeCart(){
 
 document.getElementById("cartModal")
 .classList.remove("show");
@@ -1091,34 +1523,37 @@ document.getElementById("cartModal")
 }
 
 
-function renderCart() {
+function renderCart(){
 
-const container =
+let box=
 document.getElementById("cartItems");
 
-container.innerHTML = "";
+box.innerHTML="";
 
-if(cart.length === 0) {
+if(cart.length===0){
 
-container.innerHTML =
-"<p style='margin-top:20px;color:#aaa;'>Your cart is empty.</p>";
+box.innerHTML=
+`<p style="color:#888;margin-top:20px">
+Your cart is empty.
+</p>`;
 
-document.getElementById("cartTotal").innerText = "0";
+document.getElementById("cartTotal")
+.innerText="0";
 
 return;
 
 }
 
-let total = 0;
+let total=0;
 
-cart.forEach((item,index) => {
+cart.forEach((item,index)=>{
 
-let itemTotal =
-item.price * item.quantity;
+let itemTotal=
+item.price*item.quantity;
 
-total += itemTotal;
+total+=itemTotal;
 
-container.innerHTML += `
+box.innerHTML+=`
 
 <div class="cart-item">
 
@@ -1126,13 +1561,15 @@ container.innerHTML += `
 
 <strong>${item.name}</strong>
 
-<p style="color:#999;margin-top:5px;">
+<div class="cart-details">
+
 ${item.style}<br>
 Size: ${item.size}<br>
 Color: ${item.color}<br>
 Design: ${item.design}<br>
 Quantity: ${item.quantity}
-</p>
+
+</div>
 
 </div>
 
@@ -1140,9 +1577,10 @@ Quantity: ${item.quantity}
 
 <strong>₹${itemTotal}</strong>
 
-<br>
+<br><br>
 
-<button class="remove"
+<button
+class="remove"
 onclick="removeCart(${index})">
 Remove
 </button>
@@ -1155,13 +1593,13 @@ Remove
 
 });
 
-document.getElementById("cartTotal").innerText =
-total;
+document.getElementById("cartTotal")
+.innerText=total;
 
 }
 
 
-function removeCart(index) {
+function removeCart(index){
 
 cart.splice(index,1);
 
@@ -1172,48 +1610,48 @@ renderCart();
 }
 
 
-function toggleWishlist(index,button) {
+/* WISHLIST */
 
-if(wishlist.includes(index)) {
+function toggleWishlist(index,button){
 
-wishlist =
-wishlist.filter(x => x !== index);
+if(wishlist.includes(index)){
 
-button.classList.remove("active");
+wishlist=
+wishlist.filter(x=>x!==index);
 
-} else {
+}else{
 
 wishlist.push(index);
 
-button.classList.add("active");
+}
+
+document.getElementById("wishCount")
+.innerText=wishlist.length;
+
+displayProducts(currentProducts);
 
 }
 
-document.getElementById("wishCount").innerText =
-wishlist.length;
 
-}
+function showWishlist(){
 
-
-function showWishlist() {
-
-const container =
+let box=
 document.getElementById("wishlistItems");
 
-container.innerHTML = "";
+box.innerHTML="";
 
-if(wishlist.length === 0) {
+if(wishlist.length===0){
 
-container.innerHTML =
-"<p style='margin-top:20px;color:#aaa;'>Your wishlist is empty.</p>";
+box.innerHTML=
+`<p style="color:#888">Your wishlist is empty.</p>`;
 
-} else {
+}else{
 
-wishlist.forEach(index => {
+wishlist.forEach(index=>{
 
-let p = products[index];
+let p=products[index];
 
-container.innerHTML += `
+box.innerHTML+=`
 
 <div class="cart-item">
 
@@ -1221,18 +1659,17 @@ container.innerHTML += `
 
 <strong>${p.name}</strong>
 
-<p style="color:#aaa;">
+<div class="cart-details">
+${p.category} • ${p.type}<br>
 ₹${p.price}
-</p>
+</div>
 
 </div>
 
-<button
-class="remove"
-onclick="openProduct(${index});closeWishlist();">
-
+<button class="view"
+style="width:auto;padding:8px 14px"
+onclick="closeWishlist();openProduct(${index})">
 VIEW
-
 </button>
 
 </div>
@@ -1249,7 +1686,7 @@ document.getElementById("wishlistModal")
 }
 
 
-function closeWishlist() {
+function closeWishlist(){
 
 document.getElementById("wishlistModal")
 .classList.remove("show");
@@ -1257,24 +1694,11 @@ document.getElementById("wishlistModal")
 }
 
 
-function searchProducts() {
+/* CHECKOUT */
 
-let query =
-document.getElementById("search").value.toLowerCase();
+function openCheckout(){
 
-let filtered =
-products.filter(p =>
-p.name.toLowerCase().includes(query)
-);
-
-displayProducts(filtered);
-
-}
-
-
-function openCheckout() {
-
-if(cart.length === 0) {
+if(cart.length===0){
 
 alert("Your cart is empty!");
 
@@ -1290,7 +1714,7 @@ document.getElementById("checkoutModal")
 }
 
 
-function closeCheckout() {
+function closeCheckout(){
 
 document.getElementById("checkoutModal")
 .classList.remove("show");
@@ -1298,14 +1722,24 @@ document.getElementById("checkoutModal")
 }
 
 
-function placeOrder() {
+function selectPayment(button){
+
+document.querySelectorAll(".payment")
+.forEach(x=>x.classList.remove("selected"));
+
+button.classList.add("selected");
+
+}
+
+
+function placeOrder(){
 
 alert(
-"🎉 Order placed successfully!\
-\n\nThank you for shopping with UrbanWear."
+"🎉 Demo order placed successfully!\n\n"+
+"Thank you for shopping with UrbanWear."
 );
 
-cart = [];
+cart=[];
 
 updateCartCount();
 
@@ -1314,7 +1748,9 @@ closeCheckout();
 }
 
 
-displayProducts();
+/* START */
+
+displayProducts(products);
 
 </script>
 
