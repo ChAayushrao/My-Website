@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>VYBE — Fashion Store</title>
 
 <style>
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,7 +14,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f6f6fa;
+    background: #f6f6f8;
     color: #151515;
 }
 
@@ -25,10 +23,10 @@ body {
 header {
     background: #111;
     color: white;
-    padding: 18px 6%;
+    padding: 17px 6%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -43,14 +41,14 @@ header {
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 12px;
+    margin: 0 10px;
 }
 
 .cart-btn {
     border: none;
-    background: #9b4dff;
+    background: #9b45f5;
     color: white;
-    padding: 12px 18px;
+    padding: 11px 17px;
     border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
@@ -59,34 +57,29 @@ nav a {
 /* HERO */
 
 .hero {
-    min-height: 480px;
-    padding: 80px 8%;
+    min-height: 470px;
+    padding: 70px 8%;
     display: flex;
     align-items: center;
-
-    background:
-    linear-gradient(120deg, #111 30%, #8b35d6 100%);
-
     color: white;
+    background: linear-gradient(120deg, #111 30%, #8b32d4);
 }
 
 .hero h1 {
-    font-size: clamp(45px, 8vw, 90px);
+    font-size: clamp(50px, 8vw, 90px);
     line-height: .9;
     margin-bottom: 25px;
 }
 
 .hero p {
+    max-width: 600px;
     font-size: 20px;
     color: #ddd;
-    max-width: 600px;
     margin-bottom: 30px;
 }
 
 .shop-btn {
     border: none;
-    background: white;
-    color: #111;
     padding: 15px 28px;
     border-radius: 30px;
     font-weight: bold;
@@ -100,7 +93,7 @@ section {
 }
 
 .section-title {
-    font-size: 36px;
+    font-size: 35px;
     margin-bottom: 8px;
 }
 
@@ -113,9 +106,7 @@ section {
 
 .products {
     display: grid;
-    grid-template-columns:
-    repeat(auto-fit, minmax(210px, 1fr));
-
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 22px;
 }
 
@@ -123,10 +114,7 @@ section {
     background: white;
     border-radius: 18px;
     overflow: hidden;
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,.08);
-
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
     transition: .25s;
 }
 
@@ -136,15 +124,11 @@ section {
 
 .product-image {
     height: 220px;
-
     display: flex;
-    justify-content: center;
     align-items: center;
-
+    justify-content: center;
     font-size: 75px;
-
-    background:
-    linear-gradient(135deg, #eee, #ddd);
+    background: linear-gradient(135deg,#eee,#ddd);
 }
 
 .product-info {
@@ -163,214 +147,139 @@ section {
 
 .choose-btn {
     width: 100%;
+    padding: 13px;
     border: none;
+    border-radius: 10px;
     background: #111;
     color: white;
-    padding: 13px;
-    border-radius: 10px;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .choose-btn:hover {
-    background: #8b35d6;
+    background: #8b32d4;
 }
 
-/* PRODUCT POPUP */
+/* PRODUCT MODAL */
 
-.product-modal {
+.modal {
     display: none;
-
     position: fixed;
     inset: 0;
-
     background: rgba(0,0,0,.7);
-
     z-index: 300;
-
     padding: 20px;
-
     overflow-y: auto;
 }
 
-.product-box {
-    max-width: 550px;
+.modal-box {
+    max-width: 650px;
+    margin: 30px auto;
     background: white;
-
-    margin: 40px auto;
-
     border-radius: 20px;
-
     padding: 30px;
 }
 
-.product-preview {
-    text-align: center;
-
-    font-size: 100px;
-
-    background: #eee;
-
+.preview {
+    height: 180px;
     border-radius: 15px;
-
-    padding: 30px;
-
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
     margin-bottom: 20px;
 }
 
-.product-box h2 {
-    margin-bottom: 8px;
+.option {
+    margin-top: 22px;
 }
 
 .option-title {
     font-weight: bold;
-    margin-top: 22px;
     margin-bottom: 10px;
 }
 
-/* COLOUR OPTIONS */
-
-.color-options {
+.options {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 9px;
 }
 
-.color-btn {
+.option-btn {
     padding: 10px 15px;
-
     border: 2px solid #ddd;
-
     background: white;
-
     border-radius: 8px;
-
     cursor: pointer;
 }
 
-.color-btn.selected {
-    border-color: #8b35d6;
-    background: #f2e7ff;
+.option-btn:hover {
+    border-color: #9b45f5;
 }
 
-/* SIZE OPTIONS */
-
-.size-options {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+.option-btn.selected {
+    border-color: #8b32d4;
+    background: #f1e4ff;
 }
 
-.size-btn {
-    min-width: 55px;
-
-    padding: 11px;
-
-    border: 2px solid #ddd;
-
-    background: white;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-}
-
-.size-btn.selected {
-    border-color: #8b35d6;
-    background: #f2e7ff;
-}
-
-/* QUANTITY */
-
-.quantity-box {
+.quantity {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.quantity-box button {
-    width: 35px;
-    height: 35px;
-
+.quantity button {
+    width: 36px;
+    height: 36px;
     border: none;
-
-    background: #eee;
-
     border-radius: 7px;
-
+    background: #eee;
     cursor: pointer;
-
     font-size: 18px;
 }
 
-.add-product {
+.add-btn {
     width: 100%;
-
-    margin-top: 25px;
-
+    margin-top: 28px;
     padding: 15px;
-
     border: none;
-
-    background: #8b35d6;
-
+    background: #8b32d4;
     color: white;
-
     border-radius: 10px;
-
-    font-size: 16px;
-
     font-weight: bold;
-
+    font-size: 16px;
     cursor: pointer;
 }
 
-.close-modal {
+.cancel-btn {
     width: 100%;
-
     margin-top: 10px;
-
-    padding: 12px;
-
+    padding: 13px;
     border: none;
-
     background: #eee;
-
     border-radius: 10px;
-
     cursor: pointer;
 }
 
 /* CART */
 
-.cart-panel {
+.cart {
     position: fixed;
-
     right: -460px;
-
     top: 0;
-
     width: 440px;
-
     max-width: 95%;
-
     height: 100%;
-
     background: white;
-
     z-index: 250;
-
     padding: 25px;
-
     overflow-y: auto;
-
-    box-shadow:
-    -10px 0 30px rgba(0,0,0,.2);
-
+    box-shadow: -10px 0 30px rgba(0,0,0,.2);
     transition: .3s;
 }
 
-.cart-panel.open {
+.cart.open {
     right: 0;
 }
 
@@ -378,35 +287,27 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     margin-bottom: 20px;
 }
 
-.close-cart {
+.close {
     border: none;
-
     background: #eee;
-
     width: 35px;
     height: 35px;
-
     border-radius: 50%;
-
     cursor: pointer;
 }
 
 .cart-item {
-    display: flex;
-
-    gap: 12px;
-
     padding: 15px 0;
-
     border-bottom: 1px solid #ddd;
+    display: flex;
+    gap: 12px;
 }
 
 .cart-emoji {
-    font-size: 45px;
+    font-size: 42px;
 }
 
 .cart-details {
@@ -421,33 +322,25 @@ section {
 
 .cart-controls {
     display: flex;
-
-    align-items: center;
-
     gap: 8px;
-
-    margin-top: 8px;
+    align-items: center;
+    margin-top: 9px;
 }
 
 .cart-controls button {
     border: none;
-
     background: #eee;
-
     width: 28px;
     height: 28px;
-
     border-radius: 5px;
-
     cursor: pointer;
 }
 
 .remove {
     color: #e11d48;
     background: none !important;
+    width: auto !important;
 }
-
-/* SUMMARY */
 
 .summary {
     margin-top: 25px;
@@ -455,69 +348,46 @@ section {
 
 .summary-row {
     display: flex;
-
     justify-content: space-between;
-
     margin: 10px 0;
 }
 
 .total {
     border-top: 1px solid #ddd;
-
     padding-top: 15px;
-
     font-size: 22px;
-
     font-weight: bold;
 }
 
 .checkout-btn {
     width: 100%;
-
     padding: 15px;
-
-    border: none;
-
-    background: #8b35d6;
-
-    color: white;
-
-    border-radius: 10px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
     margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background: #8b32d4;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* CHECKOUT */
 
-.checkout-modal {
+.checkout {
     display: none;
-
     position: fixed;
-
     inset: 0;
-
     background: rgba(0,0,0,.7);
-
     z-index: 400;
-
     padding: 20px;
-
     overflow-y: auto;
 }
 
 .checkout-box {
     max-width: 650px;
-
     margin: 30px auto;
-
-    background: white;
-
     padding: 30px;
-
+    background: white;
     border-radius: 20px;
 }
 
@@ -527,24 +397,16 @@ section {
 
 .form-group label {
     display: block;
-
     font-weight: bold;
-
     margin-bottom: 7px;
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select {
-
+.form-group textarea {
     width: 100%;
-
     padding: 13px;
-
     border: 1px solid #ccc;
-
     border-radius: 9px;
-
     font-size: 15px;
 }
 
@@ -552,13 +414,22 @@ section {
     min-height: 90px;
 }
 
-/* COUPON */
+.payment {
+    margin-top: 25px;
+}
+
+.payment-option {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
 
 .coupon {
     display: flex;
-
     gap: 10px;
-
     margin-top: 10px;
 }
 
@@ -568,106 +439,43 @@ section {
 
 .coupon button {
     border: none;
-
     background: #111;
-
     color: white;
-
     padding: 0 18px;
-
     border-radius: 8px;
-
     cursor: pointer;
 }
-
-/* PAYMENT */
-
-.payment-option {
-    display: block;
-
-    border: 1px solid #ddd;
-
-    padding: 14px;
-
-    border-radius: 10px;
-
-    margin-top: 10px;
-
-    cursor: pointer;
-}
-
-.payment-option:hover {
-    border-color: #8b35d6;
-}
-
-/* ORDER */
 
 .place-order {
     width: 100%;
-
     padding: 16px;
-
     margin-top: 25px;
-
     border: none;
-
-    background: #8b35d6;
-
+    border-radius: 10px;
+    background: #8b32d4;
     color: white;
-
-    border-radius: 10px;
-
     font-weight: bold;
-
-    cursor: pointer;
-}
-
-.cancel-order {
-    width: 100%;
-
-    padding: 13px;
-
-    margin-top: 10px;
-
-    border: none;
-
-    background: #eee;
-
-    border-radius: 10px;
-
     cursor: pointer;
 }
 
 .success {
     display: none;
-
     text-align: center;
-
     padding: 30px;
 }
 
 .success-icon {
     font-size: 70px;
-
-    margin-bottom: 15px;
 }
-
-/* FOOTER */
 
 footer {
     background: #111;
-
     color: white;
-
     text-align: center;
-
     padding: 35px;
 }
 
-/* MOBILE */
-
 @media(max-width:700px) {
-
     nav {
         display: none;
     }
@@ -679,21 +487,15 @@ footer {
     section {
         padding: 45px 5%;
     }
-
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
 <header>
 
-    <div class="logo">
-        VYBE
-    </div>
+    <div class="logo">VYBE</div>
 
     <nav>
         <a href="#clothing">Clothing</a>
@@ -701,27 +503,21 @@ footer {
     </nav>
 
     <button class="cart-btn" onclick="openCart()">
-        🛒 Cart
-        (<span id="cartCount">0</span>)
+        🛒 Cart (<span id="cartCount">0</span>)
     </button>
 
 </header>
 
 
-<!-- HERO -->
-
 <div class="hero">
 
     <div>
 
-        <h1>
-            WEAR<br>
-            YOUR VYBE.
-        </h1>
+        <h1>WEAR<br>YOUR VYBE.</h1>
 
         <p>
-            Find your style. Pick your colour.
-            Choose your size. Make it yours.
+            Choose your style, fit, material,
+            colour and everything in between.
         </p>
 
         <button
@@ -737,8 +533,6 @@ footer {
 </div>
 
 
-<!-- CLOTHING -->
-
 <section id="clothing">
 
     <h2 class="section-title">
@@ -746,18 +540,13 @@ footer {
     </h2>
 
     <p class="section-subtitle">
-        Choose exactly how you want it.
+        Customize your outfit exactly how you want it.
     </p>
 
-    <div
-        class="products"
-        id="clothingProducts">
-    </div>
+    <div class="products" id="clothingProducts"></div>
 
 </section>
 
-
-<!-- ACCESSORIES -->
 
 <section id="accessories">
 
@@ -769,95 +558,66 @@ footer {
         Complete your look.
     </p>
 
-    <div
-        class="products"
-        id="accessoryProducts">
-    </div>
+    <div class="products" id="accessoryProducts"></div>
 
 </section>
 
 
-<!-- PRODUCT OPTION POPUP -->
+<!-- PRODUCT CUSTOMIZATION -->
 
-<div
-    class="product-modal"
-    id="productModal">
+<div class="modal" id="productModal">
 
-    <div class="product-box">
+    <div class="modal-box">
 
-        <div
-            class="product-preview"
-            id="productEmoji">
-        </div>
+        <div class="preview" id="preview"></div>
 
-        <h2 id="productName">
-            Product
-        </h2>
+        <h2 id="productName"></h2>
 
-        <p
-            style="color:#777"
-            id="productPrice">
+        <p id="productPrice"
+           style="color:#777;margin-top:7px">
         </p>
 
 
-        <!-- COLOUR -->
-
-        <div class="option-title">
-            🎨 Choose Colour
-        </div>
-
-        <div
-            class="color-options"
-            id="colorOptions">
-        </div>
+        <div id="optionsContainer"></div>
 
 
-        <!-- SIZE -->
+        <div class="option">
 
-        <div class="option-title">
-            📏 Choose Size
-        </div>
+            <div class="option-title">
+                🔢 Quantity
+            </div>
 
-        <div
-            class="size-options"
-            id="sizeOptions">
-        </div>
+            <div class="quantity">
 
+                <button onclick="changeQuantity(-1)">
+                    −
+                </button>
 
-        <!-- QUANTITY -->
+                <span id="quantity">
+                    1
+                </span>
 
-        <div class="option-title">
-            🔢 Quantity
-        </div>
+                <button onclick="changeQuantity(1)">
+                    +
+                </button>
 
-        <div class="quantity-box">
-
-            <button onclick="changeProductQuantity(-1)">
-                −
-            </button>
-
-            <span id="productQuantity">
-                1
-            </span>
-
-            <button onclick="changeProductQuantity(1)">
-                +
-            </button>
+            </div>
 
         </div>
 
 
         <button
-            class="add-product"
-            onclick="addSelectedProduct()">
+            class="add-btn"
+            onclick="addToCart()">
 
-            🛒 Add To Cart
+            🛒 Add Customized Product
 
         </button>
 
+
         <button
-            class="close-modal"
-            onclick="closeProductModal()">
+            class="cancel-btn"
+            onclick="closeProduct()">
 
             Cancel
 
@@ -870,68 +630,37 @@ footer {
 
 <!-- CART -->
 
-<div
-    class="cart-panel"
-    id="cartPanel">
+<div class="cart" id="cart">
 
     <div class="cart-header">
 
-        <h2>
-            🛒 Your Cart
-        </h2>
+        <h2>Your Cart</h2>
 
-        <button
-            class="close-cart"
-            onclick="closeCart()">
-
+        <button class="close"
+                onclick="closeCart()">
             ✕
-
         </button>
 
     </div>
 
-    <div id="cartItems">
-    </div>
-
+    <div id="cartItems"></div>
 
     <div class="summary">
 
         <div class="summary-row">
-
-            <span>
-                Subtotal
-            </span>
-
-            <span>
-                ₹<span id="subtotal">0</span>
-            </span>
-
+            <span>Subtotal</span>
+            <span>₹<span id="subtotal">0</span></span>
         </div>
 
         <div class="summary-row">
-
-            <span>
-                Delivery
-            </span>
-
-            <span>
-                ₹<span id="delivery">0</span>
-            </span>
-
+            <span>Delivery</span>
+            <span>₹<span id="delivery">0</span></span>
         </div>
 
         <div class="summary-row total">
-
-            <span>
-                Total
-            </span>
-
-            <span>
-                ₹<span id="total">0</span>
-            </span>
-
+            <span>Total</span>
+            <span>₹<span id="total">0</span></span>
         </div>
-
 
         <button
             class="checkout-btn"
@@ -948,82 +677,38 @@ footer {
 
 <!-- CHECKOUT -->
 
-<div
-    class="checkout-modal"
-    id="checkoutModal">
+<div class="checkout" id="checkout">
 
     <div class="checkout-box">
 
         <div id="checkoutForm">
 
-            <h2>
-                🛍️ Checkout
-            </h2>
-
+            <h2>🛍️ Checkout</h2>
 
             <div class="form-group">
-
-                <label>
-                    Full Name
-                </label>
-
-                <input
-                    id="name"
-                    placeholder="Your name">
-
+                <label>Full Name</label>
+                <input id="name" placeholder="Your name">
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Phone Number
-                </label>
-
-                <input
-                    id="phone"
-                    placeholder="Phone number">
-
+                <label>Phone Number</label>
+                <input id="phone" placeholder="Phone number">
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    Delivery Address
-                </label>
-
-                <textarea
-                    id="address"
-                    placeholder="House number, street, area">
-                </textarea>
-
+                <label>Delivery Address</label>
+                <textarea id="address"
+                    placeholder="House number, street, area"></textarea>
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    City
-                </label>
-
-                <input
-                    id="city"
-                    placeholder="City">
-
+                <label>City</label>
+                <input id="city" placeholder="City">
             </div>
 
-
             <div class="form-group">
-
-                <label>
-                    PIN Code
-                </label>
-
-                <input
-                    id="pin"
-                    placeholder="PIN code">
-
+                <label>PIN Code</label>
+                <input id="pin" placeholder="PIN code">
             </div>
 
 
@@ -1043,116 +728,66 @@ footer {
 
             </div>
 
-            <p
-                id="couponMessage"
-                style="margin-top:8px">
+            <p id="couponMessage"
+               style="margin-top:8px">
             </p>
 
 
-            <h3 style="margin-top:25px">
-                💳 Payment Method
-            </h3>
+            <div class="payment">
 
+                <h3>💳 Payment Method</h3>
 
-            <label class="payment-option">
+                <label class="payment-option">
+                    <input type="radio"
+                           name="payment"
+                           value="UPI">
+                    📱 UPI
+                </label>
 
-                <input
-                    type="radio"
-                    name="payment"
-                    value="UPI">
+                <label class="payment-option">
+                    <input type="radio"
+                           name="payment"
+                           value="Card">
+                    💳 Credit / Debit Card
+                </label>
 
-                📱 UPI
+                <label class="payment-option">
+                    <input type="radio"
+                           name="payment"
+                           value="Net Banking">
+                    🏦 Net Banking
+                </label>
 
-            </label>
+                <label class="payment-option">
+                    <input type="radio"
+                           name="payment"
+                           value="COD">
+                    💵 Cash On Delivery
+                </label>
 
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="Card">
-
-                💳 Credit / Debit Card
-
-            </label>
-
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="Net Banking">
-
-                🏦 Net Banking
-
-            </label>
-
-
-            <label class="payment-option">
-
-                <input
-                    type="radio"
-                    name="payment"
-                    value="COD">
-
-                💵 Cash On Delivery
-
-            </label>
+            </div>
 
 
             <div class="summary">
 
                 <div class="summary-row">
-
-                    <span>
-                        Subtotal
-                    </span>
-
-                    <span>
-                        ₹<span id="checkoutSubtotal">0</span>
-                    </span>
-
+                    <span>Subtotal</span>
+                    <span>₹<span id="checkoutSubtotal">0</span></span>
                 </div>
-
 
                 <div class="summary-row">
-
-                    <span>
-                        Delivery
-                    </span>
-
-                    <span>
-                        ₹<span id="checkoutDelivery">0</span>
-                    </span>
-
+                    <span>Delivery</span>
+                    <span>₹<span id="checkoutDelivery">0</span></span>
                 </div>
-
 
                 <div class="summary-row">
-
-                    <span>
-                        Discount
-                    </span>
-
-                    <span>
-                        -₹<span id="discount">0</span>
-                    </span>
-
+                    <span>Discount</span>
+                    <span>-₹<span id="discount">0</span></span>
                 </div>
-
 
                 <div class="summary-row total">
-
-                    <span>
-                        Grand Total
-                    </span>
-
-                    <span>
-                        ₹<span id="checkoutTotal">0</span>
-                    </span>
-
+                    <span>Grand Total</span>
+                    <span>₹<span id="grandTotal">0</span></span>
                 </div>
 
             </div>
@@ -1162,27 +797,14 @@ footer {
                 class="place-order"
                 onclick="placeOrder()">
 
-                🚀 Place Order
-
-            </button>
-
-
-            <button
-                class="cancel-order"
-                onclick="closeCheckout()">
-
-                Cancel
+                🚀 Place Demo Order
 
             </button>
 
         </div>
 
 
-        <!-- SUCCESS -->
-
-        <div
-            class="success"
-            id="success">
+        <div class="success" id="success">
 
             <div class="success-icon">
                 🎉
@@ -1193,11 +815,7 @@ footer {
             </h2>
 
             <p style="margin-top:15px">
-                Thanks for shopping with VYBE!
-            </p>
-
-            <p style="margin-top:10px;color:#777">
-                Your demo order has been placed.
+                Your VYBE demo order was placed successfully.
             </p>
 
             <button
@@ -1215,23 +833,16 @@ footer {
 </div>
 
 
-<!-- FOOTER -->
-
 <footer>
 
-    <h2>
-        VYBE
-    </h2>
+    <h2>VYBE</h2>
 
     <p style="margin-top:10px">
         Fashion that matches your vibe.
     </p>
 
-    <p
-        style="margin-top:20px;color:#aaa">
-
+    <p style="margin-top:20px;color:#aaa">
         © 2026 VYBE
-
     </p>
 
 </footer>
@@ -1239,281 +850,477 @@ footer {
 
 <script>
 
-/* =========================
-   PRODUCT DATABASE
-========================= */
+/* =========================================
+   PRODUCTS
+========================================= */
 
 const clothing = [
 
     {
-        name: "Oversized Black T-Shirt",
+        name: "Oversized T-Shirt",
         price: 799,
         emoji: "👕",
-        colors: ["Black", "White", "Purple", "Red"],
-        sizes: ["S", "M", "L", "XL"]
+
+        options: {
+            "🎨 Colour": [
+                "Black",
+                "White",
+                "Purple",
+                "Red",
+                "Blue"
+            ],
+
+            "📏 Size": [
+                "XS",
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXL"
+            ],
+
+            "👕 Fit": [
+                "Oversized",
+                "Regular",
+                "Relaxed"
+            ],
+
+            "🧵 Fabric": [
+                "100% Cotton",
+                "Cotton Blend",
+                "Organic Cotton"
+            ],
+
+            "🖼️ Pattern": [
+                "Plain",
+                "Graphic",
+                "Printed",
+                "Striped"
+            ]
+        }
     },
 
-    {
-        name: "Classic White T-Shirt",
-        price: 699,
-        emoji: "👕",
-        colors: ["White", "Black", "Blue"],
-        sizes: ["S", "M", "L", "XL"]
-    },
-
-    {
-        name: "Street Hoodie",
-        price: 1499,
-        emoji: "🧥",
-        colors: ["Black", "Purple", "Grey", "Blue"],
-        sizes: ["S", "M", "L", "XL"]
-    },
-
-    {
-        name: "Denim Jacket",
-        price: 1899,
-        emoji: "🧥",
-        colors: ["Blue", "Black"],
-        sizes: ["S", "M", "L", "XL"]
-    },
-
-    {
-        name: "Cargo Pants",
-        price: 1299,
-        emoji: "👖",
-        colors: ["Black", "Green", "Beige"],
-        sizes: ["S", "M", "L", "XL"]
-    },
-
-    {
-        name: "Relaxed Jeans",
-        price: 1399,
-        emoji: "👖",
-        colors: ["Blue", "Black", "Grey"],
-        sizes: ["28", "30", "32", "34", "36"]
-    },
-
-    {
-        name: "Graphic T-Shirt",
-        price: 899,
-        emoji: "👕",
-        colors: ["Black", "White", "Red"],
-        sizes: ["S", "M", "L", "XL"]
-    },
 
     {
         name: "Premium Hoodie",
         price: 1699,
         emoji: "🧥",
-        colors: ["Black", "Grey", "Purple"],
-        sizes: ["S", "M", "L", "XL"]
+
+        options: {
+            "🎨 Colour": [
+                "Black",
+                "Grey",
+                "Purple",
+                "Blue",
+                "Cream"
+            ],
+
+            "📏 Size": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXL"
+            ],
+
+            "👕 Fit": [
+                "Oversized",
+                "Regular",
+                "Relaxed"
+            ],
+
+            "🧵 Fabric": [
+                "Cotton",
+                "Fleece",
+                "Cotton Blend"
+            ],
+
+            "🔥 Style": [
+                "Pullover",
+                "Zip-Up"
+            ]
+        }
+    },
+
+
+    {
+        name: "Denim Jacket",
+        price: 1899,
+        emoji: "🧥",
+
+        options: {
+            "🎨 Colour": [
+                "Light Blue",
+                "Dark Blue",
+                "Black",
+                "Grey"
+            ],
+
+            "📏 Size": [
+                "S",
+                "M",
+                "L",
+                "XL"
+            ],
+
+            "👕 Fit": [
+                "Regular",
+                "Oversized"
+            ],
+
+            "🧵 Material": [
+                "Denim",
+                "Stretch Denim"
+            ],
+
+            "✨ Wash": [
+                "Light Wash",
+                "Medium Wash",
+                "Dark Wash"
+            ]
+        }
+    },
+
+
+    {
+        name: "Cargo Pants",
+        price: 1299,
+        emoji: "👖",
+
+        options: {
+            "🎨 Colour": [
+                "Black",
+                "Green",
+                "Beige",
+                "Grey"
+            ],
+
+            "📏 Waist": [
+                "28",
+                "30",
+                "32",
+                "34",
+                "36"
+            ],
+
+            "👕 Fit": [
+                "Slim",
+                "Regular",
+                "Relaxed",
+                "Baggy"
+            ],
+
+            "🧵 Fabric": [
+                "Cotton",
+                "Cotton Blend"
+            ],
+
+            "✨ Style": [
+                "Classic",
+                "Utility",
+                "Streetwear"
+            ]
+        }
+    },
+
+
+    {
+        name: "Relaxed Jeans",
+        price: 1399,
+        emoji: "👖",
+
+        options: {
+            "🎨 Colour": [
+                "Blue",
+                "Black",
+                "Grey"
+            ],
+
+            "📏 Waist": [
+                "28",
+                "30",
+                "32",
+                "34",
+                "36"
+            ],
+
+            "👕 Fit": [
+                "Slim",
+                "Straight",
+                "Relaxed",
+                "Baggy"
+            ],
+
+            "✨ Wash": [
+                "Light",
+                "Medium",
+                "Dark"
+            ],
+
+            "🧵 Material": [
+                "Denim",
+                "Stretch Denim"
+            ]
+        }
     }
 
 ];
 
-
-/* =========================
-   ACCESSORIES
-========================= */
 
 const accessories = [
 
     {
-        name:"Classic Cap",
-        price:399,
-        emoji:"🧢",
-        colors:["Black","White","Blue"],
-        sizes:["One Size"]
+        name: "Premium Cap",
+        price: 499,
+        emoji: "🧢",
+
+        options: {
+
+            "🎨 Colour": [
+                "Black",
+                "White",
+                "Blue",
+                "Red"
+            ],
+
+            "📏 Size": [
+                "Small",
+                "Medium",
+                "Large",
+                "Adjustable"
+            ],
+
+            "🧵 Material": [
+                "Cotton",
+                "Denim",
+                "Polyester"
+            ],
+
+            "🔒 Closure": [
+                "Snapback",
+                "Buckle",
+                "Velcro"
+            ],
+
+            "✨ Style": [
+                "Classic",
+                "Streetwear",
+                "Sport"
+            ]
+        }
     },
 
-    {
-        name:"Sunglasses",
-        price:599,
-        emoji:"🕶️",
-        colors:["Black","Brown","Silver"],
-        sizes:["One Size"]
-    },
 
     {
-        name:"Street Backpack",
-        price:999,
-        emoji:"🎒",
-        colors:["Black","Grey","Purple"],
-        sizes:["One Size"]
+        name: "Fashion Watch",
+        price: 1299,
+        emoji: "⌚",
+
+        options: {
+
+            "🎨 Strap Colour": [
+                "Black",
+                "Silver",
+                "Gold",
+                "Brown"
+            ],
+
+            "⚫ Dial Colour": [
+                "Black",
+                "White",
+                "Blue"
+            ],
+
+            "🧵 Strap Material": [
+                "Leather",
+                "Metal",
+                "Silicone"
+            ],
+
+            "📏 Strap Size": [
+                "Small",
+                "Medium",
+                "Large"
+            ],
+
+            "✨ Style": [
+                "Classic",
+                "Sport",
+                "Luxury"
+            ]
+        }
     },
 
-    {
-        name:"Leather Wallet",
-        price:699,
-        emoji:"👛",
-        colors:["Black","Brown"],
-        sizes:["One Size"]
-    },
 
     {
-        name:"Silver Chain",
-        price:799,
-        emoji:"📿",
-        colors:["Silver","Gold"],
-        sizes:["One Size"]
+        name: "Street Backpack",
+        price: 999,
+        emoji: "🎒",
+
+        options: {
+
+            "🎨 Colour": [
+                "Black",
+                "Grey",
+                "Blue",
+                "Purple"
+            ],
+
+            "🎒 Capacity": [
+                "15L",
+                "20L",
+                "25L",
+                "30L"
+            ],
+
+            "🧵 Material": [
+                "Canvas",
+                "Polyester",
+                "Nylon"
+            ],
+
+            "✨ Style": [
+                "Casual",
+                "School",
+                "Travel",
+                "Streetwear"
+            ],
+
+            "💧 Water Resistance": [
+                "Standard",
+                "Water Resistant"
+            ]
+        }
     },
 
-    {
-        name:"Fashion Watch",
-        price:1299,
-        emoji:"⌚",
-        colors:["Black","Silver","Gold"],
-        sizes:["One Size"]
-    },
 
     {
-        name:"Crossbody Bag",
-        price:899,
-        emoji:"👜",
-        colors:["Black","Brown","Beige"],
-        sizes:["One Size"]
+        name: "Sunglasses",
+        price: 599,
+        emoji: "🕶️",
+
+        options: {
+
+            "🎨 Frame Colour": [
+                "Black",
+                "Brown",
+                "Silver",
+                "Gold"
+            ],
+
+            "🕶️ Lens Colour": [
+                "Black",
+                "Blue",
+                "Brown",
+                "Clear"
+            ],
+
+            "📏 Frame Size": [
+                "Small",
+                "Medium",
+                "Large"
+            ],
+
+            "✨ Style": [
+                "Classic",
+                "Retro",
+                "Sport",
+                "Street"
+            ],
+
+            "☀️ Lens Type": [
+                "Standard",
+                "UV Protected"
+            ]
+        }
     },
 
-    {
-        name:"Beanie",
-        price:499,
-        emoji:"🧢",
-        colors:["Black","Grey","Blue"],
-        sizes:["One Size"]
-    },
 
     {
-        name:"Bucket Hat",
-        price:449,
-        emoji:"👒",
-        colors:["Black","White","Beige"],
-        sizes:["One Size"]
-    },
+        name: "Crossbody Bag",
+        price: 899,
+        emoji: "👜",
 
-    {
-        name:"Minimal Bracelet",
-        price:399,
-        emoji:"📿",
-        colors:["Silver","Gold","Black"],
-        sizes:["S","M","L"]
-    },
+        options: {
 
-    {
-        name:"Fashion Ring",
-        price:499,
-        emoji:"💍",
-        colors:["Silver","Gold"],
-        sizes:["7","8","9","10"]
-    },
+            "🎨 Colour": [
+                "Black",
+                "Brown",
+                "Beige",
+                "White"
+            ],
 
-    {
-        name:"Canvas Tote Bag",
-        price:499,
-        emoji:"👜",
-        colors:["Black","White","Beige"],
-        sizes:["One Size"]
-    },
+            "📏 Size": [
+                "Small",
+                "Medium",
+                "Large"
+            ],
 
-    {
-        name:"Gym Bag",
-        price:999,
-        emoji:"🎒",
-        colors:["Black","Blue","Grey"],
-        sizes:["One Size"]
-    },
+            "🧵 Material": [
+                "Leather",
+                "Canvas",
+                "Polyester"
+            ],
 
-    {
-        name:"Travel Pouch",
-        price:399,
-        emoji:"👝",
-        colors:["Black","Blue","Brown"],
-        sizes:["One Size"]
-    },
+            "✨ Style": [
+                "Casual",
+                "Streetwear",
+                "Travel"
+            ],
 
-    {
-        name:"Classic Belt",
-        price:549,
-        emoji:"👔",
-        colors:["Black","Brown"],
-        sizes:["30","32","34","36"]
-    },
-
-    {
-        name:"Phone Sling Bag",
-        price:599,
-        emoji:"👜",
-        colors:["Black","Grey","Purple"],
-        sizes:["One Size"]
-    },
-
-    {
-        name:"Retro Sunglasses",
-        price:649,
-        emoji:"🕶️",
-        colors:["Black","Brown","Gold"],
-        sizes:["One Size"]
-    },
-
-    {
-        name:"Premium Cap",
-        price:499,
-        emoji:"🧢",
-        colors:["Black","Red","Blue"],
-        sizes:["One Size"]
+            "🔒 Strap": [
+                "Adjustable",
+                "Fixed"
+            ]
+        }
     }
 
 ];
 
 
-/* =========================
-   CART
-========================= */
+/* =========================================
+   VARIABLES
+========================================= */
 
 let cart = [];
 
 let selectedProduct = null;
 
-let selectedColor = null;
-
-let selectedSize = null;
+let selectedOptions = {};
 
 let selectedQuantity = 1;
 
-let discountAmount = 0;
+let discount = 0;
 
 
-/* =========================
-   CREATE PRODUCTS
-========================= */
+/* =========================================
+   DISPLAY PRODUCTS
+========================================= */
 
-function createProducts(products, containerId) {
+function displayProducts(products, containerId) {
 
     const container =
         document.getElementById(containerId);
 
-    products.forEach((product, index) => {
+    products.forEach(product => {
 
-        const div =
+        const card =
             document.createElement("div");
 
-        div.className = "product";
+        card.className = "product";
 
-        div.innerHTML = `
+        card.innerHTML = `
 
             <div class="product-image">
-
                 ${product.emoji}
-
             </div>
 
             <div class="product-info">
 
-                <h3>
-                    ${product.name}
-                </h3>
+                <h3>${product.name}</h3>
 
                 <p style="color:#777">
-                    Choose your colour & size
+                    Fully customizable
                 </p>
 
                 <div class="price">
@@ -1522,9 +1329,9 @@ function createProducts(products, containerId) {
 
                 <button
                     class="choose-btn"
-                    onclick='openProductModal(${JSON.stringify(product)})'>
+                    onclick='openProduct(${JSON.stringify(product)})'>
 
-                    Choose Options →
+                    Customize Product →
 
                 </button>
 
@@ -1532,42 +1339,40 @@ function createProducts(products, containerId) {
 
         `;
 
-        container.appendChild(div);
+        container.appendChild(card);
 
     });
 
 }
 
 
-createProducts(
+displayProducts(
     clothing,
     "clothingProducts"
 );
 
-createProducts(
+displayProducts(
     accessories,
     "accessoryProducts"
 );
 
 
-/* =========================
-   PRODUCT MODAL
-========================= */
+/* =========================================
+   OPEN PRODUCT
+========================================= */
 
-function openProductModal(product) {
+function openProduct(product) {
 
     selectedProduct = product;
 
-    selectedColor = null;
-
-    selectedSize = null;
+    selectedOptions = {};
 
     selectedQuantity = 1;
 
     document.getElementById("productModal")
         .style.display = "block";
 
-    document.getElementById("productEmoji")
+    document.getElementById("preview")
         .textContent = product.emoji;
 
     document.getElementById("productName")
@@ -1576,170 +1381,143 @@ function openProductModal(product) {
     document.getElementById("productPrice")
         .textContent = "₹" + product.price;
 
-
-    /* COLORS */
-
-    const colors =
-        document.getElementById("colorOptions");
-
-    colors.innerHTML = "";
-
-    product.colors.forEach(color => {
-
-        const button =
-            document.createElement("button");
-
-        button.className = "color-btn";
-
-        button.textContent = color;
-
-        button.onclick = () => {
-
-            selectedColor = color;
-
-            document
-                .querySelectorAll(".color-btn")
-                .forEach(btn =>
-                    btn.classList.remove("selected")
-                );
-
-            button.classList.add("selected");
-
-        };
-
-        colors.appendChild(button);
-
-    });
+    document.getElementById("quantity")
+        .textContent = "1";
 
 
-    /* SIZES */
+    const container =
+        document.getElementById("optionsContainer");
 
-    const sizes =
-        document.getElementById("sizeOptions");
-
-    sizes.innerHTML = "";
-
-    product.sizes.forEach(size => {
-
-        const button =
-            document.createElement("button");
-
-        button.className = "size-btn";
-
-        button.textContent = size;
-
-        button.onclick = () => {
-
-            selectedSize = size;
-
-            document
-                .querySelectorAll(".size-btn")
-                .forEach(btn =>
-                    btn.classList.remove("selected")
-                );
-
-            button.classList.add("selected");
-
-        };
-
-        sizes.appendChild(button);
-
-    });
+    container.innerHTML = "";
 
 
-    document.getElementById("productQuantity")
-        .textContent = 1;
+    /* CREATE EVERY OPTION */
+
+    Object.entries(product.options)
+        .forEach(([optionName, values]) => {
+
+            const option =
+                document.createElement("div");
+
+            option.className = "option";
+
+            option.innerHTML = `
+
+                <div class="option-title">
+                    ${optionName}
+                </div>
+
+                <div class="options"></div>
+
+            `;
+
+            const buttons =
+                option.querySelector(".options");
+
+
+            values.forEach(value => {
+
+                const button =
+                    document.createElement("button");
+
+                button.className = "option-btn";
+
+                button.textContent = value;
+
+                button.onclick = function() {
+
+                    selectedOptions[optionName] =
+                        value;
+
+                    buttons
+                        .querySelectorAll(".option-btn")
+                        .forEach(btn =>
+                            btn.classList.remove("selected")
+                        );
+
+                    button.classList.add("selected");
+
+                };
+
+                buttons.appendChild(button);
+
+            });
+
+
+            container.appendChild(option);
+
+        });
 
 }
 
 
-function changeProductQuantity(amount) {
+/* =========================================
+   QUANTITY
+========================================= */
+
+function changeQuantity(amount) {
 
     selectedQuantity += amount;
 
     if(selectedQuantity < 1) {
-
         selectedQuantity = 1;
-
     }
 
-    if(selectedQuantity > 10) {
-
-        selectedQuantity = 10;
-
+    if(selectedQuantity > 20) {
+        selectedQuantity = 20;
     }
 
-    document.getElementById("productQuantity")
+    document.getElementById("quantity")
         .textContent = selectedQuantity;
 
 }
 
 
-function closeProductModal() {
+/* =========================================
+   ADD TO CART
+========================================= */
 
-    document.getElementById("productModal")
-        .style.display = "none";
+function addToCart() {
 
-}
+    const requiredOptions =
+        Object.keys(selectedProduct.options);
 
 
-/* =========================
-   ADD SELECTED PRODUCT
-========================= */
+    for(const option of requiredOptions) {
 
-function addSelectedProduct() {
+        if(!selectedOptions[option]) {
 
-    if(!selectedColor) {
+            alert(
+                "Please choose: " + option
+            );
 
-        alert("Please choose a colour 🎨");
+            return;
 
-        return;
-
-    }
-
-    if(!selectedSize) {
-
-        alert("Please choose a size 📏");
-
-        return;
+        }
 
     }
 
 
-    const existing =
-        cart.find(item =>
-            item.name === selectedProduct.name &&
-            item.color === selectedColor &&
-            item.size === selectedSize
-        );
+    const item = {
+
+        name: selectedProduct.name,
+
+        price: selectedProduct.price,
+
+        emoji: selectedProduct.emoji,
+
+        options: {
+            ...selectedOptions
+        },
+
+        quantity: selectedQuantity
+
+    };
 
 
-    if(existing) {
+    cart.push(item);
 
-        existing.quantity += selectedQuantity;
-
-    } else {
-
-        cart.push({
-
-            name: selectedProduct.name,
-
-            price: selectedProduct.price,
-
-            emoji: selectedProduct.emoji,
-
-            color: selectedColor,
-
-            size: selectedSize,
-
-            quantity: selectedQuantity
-
-        });
-
-    }
-
-
-    closeProductModal();
+    closeProduct();
 
     updateCart();
 
@@ -1748,9 +1526,21 @@ function addSelectedProduct() {
 }
 
 
-/* =========================
-   UPDATE CART
-========================= */
+/* =========================================
+   CLOSE PRODUCT
+========================================= */
+
+function closeProduct() {
+
+    document.getElementById("productModal")
+        .style.display = "none";
+
+}
+
+
+/* =========================================
+   CART
+========================================= */
 
 function updateCart() {
 
@@ -1761,23 +1551,35 @@ function updateCart() {
 
     let subtotal = 0;
 
-    let itemCount = 0;
+    let count = 0;
 
 
-    cart.forEach((item, index) => {
+    cart.forEach((item,index) => {
 
         subtotal +=
             item.price * item.quantity;
 
-        itemCount +=
-            item.quantity;
+        count += item.quantity;
+
+
+        let optionsHTML = "";
+
+        Object.entries(item.options)
+            .forEach(([key,value]) => {
+
+                optionsHTML += `
+                    <small>
+                        ${key}: ${value}
+                    </small>
+                `;
+
+            });
 
 
         const div =
             document.createElement("div");
 
         div.className = "cart-item";
-
 
         div.innerHTML = `
 
@@ -1791,13 +1593,7 @@ function updateCart() {
                     ${item.name}
                 </strong>
 
-                <small>
-                    Colour: ${item.color}
-                </small>
-
-                <small>
-                    Size: ${item.size}
-                </small>
+                ${optionsHTML}
 
                 <small>
                     ₹${item.price} each
@@ -1806,10 +1602,8 @@ function updateCart() {
                 <div class="cart-controls">
 
                     <button
-                        onclick="changeCartQuantity(${index}, -1)">
-
+                        onclick="changeCartQuantity(${index},-1)">
                         −
-
                     </button>
 
                     <span>
@@ -1817,15 +1611,13 @@ function updateCart() {
                     </span>
 
                     <button
-                        onclick="changeCartQuantity(${index}, 1)">
-
+                        onclick="changeCartQuantity(${index},1)">
                         +
-
                     </button>
 
                     <button
                         class="remove"
-                        onclick="removeCartItem(${index})">
+                        onclick="removeItem(${index})">
 
                         Remove
 
@@ -1845,29 +1637,21 @@ function updateCart() {
     if(cart.length === 0) {
 
         container.innerHTML = `
-
             <p style="
                 text-align:center;
                 color:#777;
-                padding:40px 0">
-
+                padding:40px">
                 Your cart is empty 🛒
-
             </p>
-
         `;
 
     }
 
 
-    /* DELIVERY */
-
     let delivery = 0;
 
     if(subtotal > 0 && subtotal < 2000) {
-
         delivery = 99;
-
     }
 
 
@@ -1875,13 +1659,13 @@ function updateCart() {
         Math.max(
             subtotal +
             delivery -
-            discountAmount,
+            discount,
             0
         );
 
 
     document.getElementById("cartCount")
-        .textContent = itemCount;
+        .textContent = count;
 
     document.getElementById("subtotal")
         .textContent = subtotal;
@@ -1892,29 +1676,20 @@ function updateCart() {
     document.getElementById("total")
         .textContent = total;
 
-
-    document.getElementById("checkoutSubtotal")
-        .textContent = subtotal;
-
-    document.getElementById("checkoutDelivery")
-        .textContent = delivery;
-
-    document.getElementById("discount")
-        .textContent = discountAmount;
-
-    document.getElementById("checkoutTotal")
-        .textContent = total;
-
 }
 
 
-function changeCartQuantity(index, amount) {
+/* =========================================
+   CART QUANTITY
+========================================= */
+
+function changeCartQuantity(index,amount) {
 
     cart[index].quantity += amount;
 
     if(cart[index].quantity <= 0) {
 
-        cart.splice(index, 1);
+        cart.splice(index,1);
 
     }
 
@@ -1923,23 +1698,22 @@ function changeCartQuantity(index, amount) {
 }
 
 
-function removeCartItem(index) {
+function removeItem(index) {
 
-    cart.splice(index, 1);
+    cart.splice(index,1);
 
     updateCart();
 
 }
 
 
-/* =========================
-   CART OPEN/CLOSE
-========================= */
+/* =========================================
+   OPEN CART
+========================================= */
 
 function openCart() {
 
-    document
-        .getElementById("cartPanel")
+    document.getElementById("cart")
         .classList.add("open");
 
 }
@@ -1947,16 +1721,15 @@ function openCart() {
 
 function closeCart() {
 
-    document
-        .getElementById("cartPanel")
+    document.getElementById("cart")
         .classList.remove("open");
 
 }
 
 
-/* =========================
+/* =========================================
    CHECKOUT
-========================= */
+========================================= */
 
 function openCheckout() {
 
@@ -1968,25 +1741,60 @@ function openCheckout() {
 
     }
 
-    document.getElementById("checkoutModal")
+    document.getElementById("checkout")
         .style.display = "block";
 
-    updateCart();
+    updateCheckout();
 
 }
 
 
-function closeCheckout() {
+function updateCheckout() {
 
-    document.getElementById("checkoutModal")
-        .style.display = "none";
+    let subtotal = 0;
+
+    cart.forEach(item => {
+
+        subtotal +=
+            item.price * item.quantity;
+
+    });
+
+
+    let delivery = 0;
+
+    if(subtotal > 0 && subtotal < 2000) {
+        delivery = 99;
+    }
+
+
+    const total =
+        Math.max(
+            subtotal +
+            delivery -
+            discount,
+            0
+        );
+
+
+    document.getElementById("checkoutSubtotal")
+        .textContent = subtotal;
+
+    document.getElementById("checkoutDelivery")
+        .textContent = delivery;
+
+    document.getElementById("discount")
+        .textContent = discount;
+
+    document.getElementById("grandTotal")
+        .textContent = total;
 
 }
 
 
-/* =========================
+/* =========================================
    COUPON
-========================= */
+========================================= */
 
 function applyCoupon() {
 
@@ -2012,37 +1820,36 @@ function applyCoupon() {
 
         });
 
-        discountAmount =
+        discount =
             Math.round(subtotal * 0.10);
-
 
         message.textContent =
             "🎉 10% discount applied!";
 
-        message.style.color =
-            "green";
+        message.style.color = "green";
 
     } else {
 
-        discountAmount = 0;
+        discount = 0;
 
         message.textContent =
             "❌ Invalid coupon";
 
-        message.style.color =
-            "red";
+        message.style.color = "red";
 
     }
 
 
     updateCart();
 
+    updateCheckout();
+
 }
 
 
-/* =========================
+/* =========================================
    PLACE ORDER
-========================= */
+========================================= */
 
 function placeOrder() {
 
@@ -2092,7 +1899,7 @@ function placeOrder() {
     if(!payment) {
 
         alert(
-            "Please choose a payment method."
+            "Please select a payment method."
         );
 
         return;
@@ -2109,14 +1916,12 @@ function placeOrder() {
 
     cart = [];
 
-    discountAmount = 0;
+    discount = 0;
 
     updateCart();
 
 }
 
-
-updateCart();
 
 </script>
 
