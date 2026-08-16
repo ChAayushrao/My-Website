@@ -1,583 +1,452 @@
-let cart = [];
-let currentProduct = null;
-let selectedOptions = {};
-let quantity = 1;
+const products = [
 
-
-/* =========================
-   MEN
-========================= */
-
-const men = [
+/* MEN */
 
 {
+    category:"men",
     name:"Oversized T-Shirt",
     price:799,
     emoji:"👕",
 
     options:{
-        "🎨 Colour":["Black","White","Red","Blue","Purple","Green"],
-        "📏 Size":["XS","S","M","L","XL","XXL"],
-        "👕 Fit":["Oversized","Regular","Relaxed"],
-        "🧵 Fabric":["Cotton","Organic Cotton","Cotton Blend"],
-        "🖼️ Pattern":["Plain","Graphic","Printed","Striped"],
-        "👔 Sleeve":["Short Sleeve","Long Sleeve"]
+        "Colour":["Black","White","Red","Blue","Green","Purple"],
+        "Size":["XS","S","M","L","XL","XXL"],
+        "Fit":["Oversized","Regular","Relaxed"],
+        "Fabric":["Cotton","Organic Cotton","Cotton Blend"],
+        "Pattern":["Plain","Graphic","Printed","Striped"],
+        "Sleeve":["Short","Long"]
     }
 },
 
 {
+    category:"men",
     name:"Polo Shirt",
     price:899,
     emoji:"👕",
 
     options:{
-        "🎨 Colour":["Black","White","Navy","Green","Red"],
-        "📏 Size":["S","M","L","XL","XXL"],
-        "👕 Fit":["Slim","Regular","Relaxed"],
-        "🧵 Fabric":["Cotton","Pique Cotton"],
-        "🖼️ Pattern":["Plain","Striped","Printed"],
-        "👔 Collar":["Classic","Button Down"]
+        "Colour":["Black","White","Navy","Green","Red"],
+        "Size":["S","M","L","XL","XXL"],
+        "Fit":["Slim","Regular","Relaxed"],
+        "Fabric":["Cotton","Pique Cotton"],
+        "Pattern":["Plain","Striped","Printed"],
+        "Collar":["Classic","Button Down"]
     }
 },
 
 {
+    category:"men",
     name:"Premium Hoodie",
     price:1699,
     emoji:"🧥",
 
     options:{
-        "🎨 Colour":["Black","Grey","White","Purple","Blue","Cream"],
-        "📏 Size":["S","M","L","XL","XXL"],
-        "👕 Fit":["Oversized","Regular","Relaxed"],
-        "🧵 Fabric":["Fleece","Cotton","Cotton Blend"],
-        "🔥 Style":["Pullover","Zip Up"],
-        "🎨 Design":["Plain","Graphic","Logo"]
+        "Colour":["Black","Grey","White","Purple","Blue","Cream"],
+        "Size":["S","M","L","XL","XXL"],
+        "Fit":["Oversized","Regular","Relaxed"],
+        "Fabric":["Fleece","Cotton","Cotton Blend"],
+        "Style":["Pullover","Zip Up"],
+        "Design":["Plain","Graphic","Logo"]
     }
 },
 
 {
+    category:"men",
     name:"Cargo Pants",
     price:1299,
     emoji:"👖",
 
     options:{
-        "🎨 Colour":["Black","Green","Beige","Grey","Brown"],
-        "📏 Waist":["28","30","32","34","36","38"],
-        "👕 Fit":["Slim","Regular","Relaxed","Baggy"],
-        "🧵 Fabric":["Cotton","Cotton Blend"],
-        "✨ Style":["Classic","Utility","Streetwear"],
-        "📏 Length":["Regular","Long"]
+        "Colour":["Black","Green","Beige","Grey","Brown"],
+        "Waist":["28","30","32","34","36","38"],
+        "Fit":["Slim","Regular","Relaxed","Baggy"],
+        "Fabric":["Cotton","Cotton Blend"],
+        "Style":["Classic","Utility","Streetwear"],
+        "Length":["Regular","Long"]
     }
 },
 
 {
+    category:"men",
     name:"Denim Jacket",
     price:1899,
     emoji:"🧥",
 
     options:{
-        "🎨 Colour":["Light Blue","Dark Blue","Black","Grey"],
-        "📏 Size":["S","M","L","XL","XXL"],
-        "👕 Fit":["Regular","Oversized"],
-        "🧵 Material":["Denim","Stretch Denim"],
-        "✨ Wash":["Light","Medium","Dark"],
-        "👔 Sleeve":["Full","Folded"]
+        "Colour":["Light Blue","Dark Blue","Black","Grey"],
+        "Size":["S","M","L","XL","XXL"],
+        "Fit":["Regular","Oversized"],
+        "Material":["Denim","Stretch Denim"],
+        "Wash":["Light","Medium","Dark"]
     }
 },
 
 {
-    name:"Relaxed Jeans",
-    price:1399,
-    emoji:"👖",
-
-    options:{
-        "🎨 Colour":["Blue","Black","Grey"],
-        "📏 Waist":["28","30","32","34","36","38"],
-        "👕 Fit":["Slim","Straight","Relaxed","Baggy"],
-        "✨ Wash":["Light","Medium","Dark"],
-        "🧵 Material":["Denim","Stretch Denim"]
-    }
-},
-
-{
+    category:"men",
     name:"Formal Shirt",
     price:1099,
     emoji:"👔",
 
     options:{
-        "🎨 Colour":["White","Blue","Black","Grey"],
-        "📏 Size":["S","M","L","XL","XXL"],
-        "👕 Fit":["Slim","Regular"],
-        "🧵 Fabric":["Cotton","Linen Blend"],
-        "👔 Collar":["Classic","Spread","Button Down"],
-        "👔 Sleeve":["Full Sleeve","Half Sleeve"]
+        "Colour":["White","Blue","Black","Grey"],
+        "Size":["S","M","L","XL","XXL"],
+        "Fit":["Slim","Regular"],
+        "Fabric":["Cotton","Linen Blend"],
+        "Collar":["Classic","Spread","Button Down"],
+        "Sleeve":["Full","Half"]
     }
 },
 
-{
-    name:"Track Pants",
-    price:999,
-    emoji:"👖",
 
-    options:{
-        "🎨 Colour":["Black","Grey","Navy","Green"],
-        "📏 Size":["S","M","L","XL","XXL"],
-        "👕 Fit":["Slim","Regular","Relaxed"],
-        "🧵 Fabric":["Cotton","Polyester"],
-        "✨ Style":["Sport","Casual","Streetwear"]
-    }
-}
-
-];
-
-
-/* =========================
-   WOMEN
-========================= */
-
-const women = [
+/* WOMEN */
 
 {
-    name:"Women's Oversized T-Shirt",
-    price:799,
-    emoji:"👕",
-
-    options:{
-        "🎨 Colour":["Black","White","Pink","Purple","Blue","Green"],
-        "📏 Size":["XS","S","M","L","XL"],
-        "👕 Fit":["Oversized","Regular","Relaxed"],
-        "🧵 Fabric":["Cotton","Organic Cotton","Cotton Blend"],
-        "🖼️ Pattern":["Plain","Graphic","Printed"],
-        "👔 Sleeve":["Short","Long"]
-    }
-},
-
-{
-    name:"Stylish Crop Top",
+    category:"women",
+    name:"Women's Top",
     price:699,
     emoji:"👚",
 
     options:{
-        "🎨 Colour":["Black","White","Pink","Red","Blue","Green"],
-        "📏 Size":["XS","S","M","L","XL"],
-        "👕 Fit":["Slim","Regular"],
-        "🧵 Fabric":["Cotton","Ribbed","Polyester"],
-        "🖼️ Pattern":["Plain","Printed","Striped"],
-        "👔 Neckline":["Round","V-Neck","Square"]
+        "Colour":["Black","White","Pink","Red","Blue","Green"],
+        "Size":["XS","S","M","L","XL"],
+        "Fit":["Slim","Regular","Relaxed"],
+        "Fabric":["Cotton","Ribbed","Polyester"],
+        "Pattern":["Plain","Printed","Striped"],
+        "Neckline":["Round","V-Neck","Square"]
     }
 },
 
 {
+    category:"women",
     name:"Casual Dress",
     price:1199,
     emoji:"👗",
 
     options:{
-        "🎨 Colour":["Black","White","Pink","Blue","Green","Red"],
-        "📏 Size":["XS","S","M","L","XL"],
-        "👗 Length":["Mini","Knee Length","Midi","Maxi"],
-        "🧵 Fabric":["Cotton","Linen","Polyester"],
-        "🖼️ Pattern":["Plain","Floral","Printed"],
-        "👔 Sleeve":["Sleeveless","Short","Long"]
+        "Colour":["Black","White","Pink","Blue","Green","Red"],
+        "Size":["XS","S","M","L","XL"],
+        "Length":["Mini","Knee","Midi","Maxi"],
+        "Fabric":["Cotton","Linen","Polyester"],
+        "Pattern":["Plain","Floral","Printed"],
+        "Sleeve":["Sleeveless","Short","Long"]
     }
 },
 
 {
+    category:"women",
     name:"Wide Leg Jeans",
     price:1399,
     emoji:"👖",
 
     options:{
-        "🎨 Colour":["Blue","Black","Grey","White"],
-        "📏 Waist":["26","28","30","32","34"],
-        "👕 Fit":["Wide Leg","Relaxed","Baggy"],
-        "✨ Wash":["Light","Medium","Dark"],
-        "🧵 Material":["Denim","Stretch Denim"],
-        "📏 Length":["Regular","Long"]
+        "Colour":["Blue","Black","Grey","White"],
+        "Waist":["26","28","30","32","34"],
+        "Fit":["Wide Leg","Relaxed","Baggy"],
+        "Wash":["Light","Medium","Dark"],
+        "Material":["Denim","Stretch Denim"],
+        "Length":["Regular","Long"]
     }
 },
 
 {
+    category:"women",
     name:"Women's Hoodie",
     price:1599,
     emoji:"🧥",
 
     options:{
-        "🎨 Colour":["Black","Grey","Pink","Purple","Cream"],
-        "📏 Size":["XS","S","M","L","XL"],
-        "👕 Fit":["Oversized","Regular","Cropped"],
-        "🧵 Fabric":["Fleece","Cotton"],
-        "🔥 Style":["Pullover","Zip Up"],
-        "🎨 Design":["Plain","Graphic","Logo"]
+        "Colour":["Black","Grey","Pink","Purple","Cream"],
+        "Size":["XS","S","M","L","XL"],
+        "Fit":["Oversized","Regular","Cropped"],
+        "Fabric":["Fleece","Cotton"],
+        "Style":["Pullover","Zip Up"],
+        "Design":["Plain","Graphic","Logo"]
     }
 },
 
 {
+    category:"women",
     name:"Denim Skirt",
     price:999,
     emoji:"👗",
 
     options:{
-        "🎨 Colour":["Blue","Black","White"],
-        "📏 Waist":["26","28","30","32","34"],
-        "📏 Length":["Mini","Midi","Long"],
-        "🧵 Material":["Denim","Stretch Denim"],
-        "✨ Wash":["Light","Medium","Dark"]
+        "Colour":["Blue","Black","White"],
+        "Waist":["26","28","30","32","34"],
+        "Length":["Mini","Midi","Long"],
+        "Material":["Denim","Stretch Denim"],
+        "Wash":["Light","Medium","Dark"]
     }
 },
 
 {
-    name:"Kurtis",
+    category:"women",
+    name:"Kurti",
     price:899,
     emoji:"👗",
 
     options:{
-        "🎨 Colour":["Blue","Pink","Red","Green","Yellow","White"],
-        "📏 Size":["S","M","L","XL","XXL"],
-        "🧵 Fabric":["Cotton","Rayon","Linen"],
-        "🖼️ Pattern":["Plain","Printed","Floral"],
-        "📏 Length":["Short","Knee Length","Long"],
-        "👔 Sleeve":["Short","Three Quarter","Full"]
+        "Colour":["Blue","Pink","Red","Green","Yellow","White"],
+        "Size":["S","M","L","XL","XXL"],
+        "Fabric":["Cotton","Rayon","Linen"],
+        "Pattern":["Plain","Printed","Floral"],
+        "Length":["Short","Knee","Long"],
+        "Sleeve":["Short","Three Quarter","Full"]
     }
 },
 
-{
-    name:"Women's Jacket",
-    price:1799,
-    emoji:"🧥",
 
-    options:{
-        "🎨 Colour":["Black","Blue","White","Brown"],
-        "📏 Size":["XS","S","M","L","XL"],
-        "👕 Fit":["Slim","Regular","Oversized"],
-        "🧵 Material":["Denim","Leather Look","Polyester"],
-        "✨ Style":["Casual","Streetwear","Classic"]
-    }
-}
-
-];
-
-
-/* =========================
-   KIDS
-========================= */
-
-const kids = [
+/* KIDS */
 
 {
+    category:"kids",
     name:"Kids T-Shirt",
     price:499,
     emoji:"👕",
 
     options:{
-        "🎨 Colour":["Black","White","Red","Blue","Yellow","Green"],
-        "📏 Size":["4Y","6Y","8Y","10Y","12Y","14Y"],
-        "🧵 Fabric":["Cotton","Cotton Blend"],
-        "🖼️ Design":["Plain","Cartoon","Graphic","Sport"],
-        "👔 Sleeve":["Short","Long"]
+        "Colour":["Black","White","Red","Blue","Yellow","Green"],
+        "Age":["4Y","6Y","8Y","10Y","12Y","14Y"],
+        "Fabric":["Cotton","Cotton Blend"],
+        "Design":["Plain","Cartoon","Graphic","Sport"],
+        "Sleeve":["Short","Long"]
     }
 },
 
 {
+    category:"kids",
     name:"Kids Hoodie",
     price:799,
     emoji:"🧥",
 
     options:{
-        "🎨 Colour":["Black","Blue","Pink","Red","Green"],
-        "📏 Size":["4Y","6Y","8Y","10Y","12Y","14Y"],
-        "🧵 Fabric":["Cotton","Fleece"],
-        "🎨 Design":["Plain","Graphic","Cartoon"],
-        "🔥 Style":["Pullover","Zip Up"]
+        "Colour":["Black","Blue","Pink","Red","Green"],
+        "Age":["4Y","6Y","8Y","10Y","12Y","14Y"],
+        "Fabric":["Cotton","Fleece"],
+        "Design":["Plain","Graphic","Cartoon"],
+        "Style":["Pullover","Zip Up"]
     }
 },
 
 {
+    category:"kids",
     name:"Kids Jeans",
     price:899,
     emoji:"👖",
 
     options:{
-        "🎨 Colour":["Blue","Black","Grey"],
-        "📏 Waist":["20","22","24","26","28"],
-        "👕 Fit":["Regular","Relaxed","Baggy"],
-        "🧵 Material":["Denim","Stretch Denim"]
+        "Colour":["Blue","Black","Grey"],
+        "Waist":["20","22","24","26","28"],
+        "Fit":["Regular","Relaxed","Baggy"],
+        "Material":["Denim","Stretch Denim"]
     }
 },
 
 {
+    category:"kids",
     name:"Kids Dress",
     price:799,
     emoji:"👗",
 
     options:{
-        "🎨 Colour":["Pink","Blue","White","Purple","Red"],
-        "📏 Size":["4Y","6Y","8Y","10Y","12Y"],
-        "📏 Length":["Short","Medium","Long"],
-        "🧵 Fabric":["Cotton","Polyester"],
-        "🖼️ Pattern":["Plain","Floral","Printed"]
+        "Colour":["Pink","Blue","White","Purple","Red"],
+        "Age":["4Y","6Y","8Y","10Y","12Y"],
+        "Length":["Short","Medium","Long"],
+        "Fabric":["Cotton","Polyester"],
+        "Pattern":["Plain","Floral","Printed"]
     }
-}
-
-];
+},
 
 
-/* =========================
-   ACCESSORIES
-========================= */
-
-const accessories = [
+/* ACCESSORIES */
 
 {
+    category:"accessories",
     name:"Premium Cap",
     price:499,
     emoji:"🧢",
 
     options:{
-        "🎨 Colour":["Black","White","Blue","Red","Green","Purple"],
-        "📏 Size":["Small","Medium","Large","Adjustable"],
-        "🧵 Material":["Cotton","Denim","Polyester"],
-        "🔒 Closure":["Snapback","Buckle","Velcro"],
-        "✨ Style":["Classic","Streetwear","Sport"]
+        "Colour":["Black","White","Blue","Red","Green","Purple"],
+        "Size":["Small","Medium","Large","Adjustable"],
+        "Material":["Cotton","Denim","Polyester"],
+        "Closure":["Snapback","Buckle","Velcro"],
+        "Style":["Classic","Streetwear","Sport"]
     }
 },
 
 {
+    category:"accessories",
     name:"Fashion Watch",
     price:1299,
     emoji:"⌚",
 
     options:{
-        "🎨 Strap Colour":["Black","Silver","Gold","Brown"],
-        "⚫ Dial Colour":["Black","White","Blue"],
-        "🧵 Strap Material":["Leather","Metal","Silicone"],
-        "📏 Strap Size":["Small","Medium","Large"],
-        "✨ Style":["Classic","Sport","Luxury"]
+        "Strap Colour":["Black","Silver","Gold","Brown"],
+        "Dial":["Black","White","Blue"],
+        "Material":["Leather","Metal","Silicone"],
+        "Style":["Classic","Sport","Luxury"]
     }
 },
 
 {
+    category:"accessories",
     name:"Street Backpack",
     price:999,
     emoji:"🎒",
 
     options:{
-        "🎨 Colour":["Black","Grey","Blue","Purple","Green"],
-        "🎒 Capacity":["15L","20L","25L","30L"],
-        "🧵 Material":["Canvas","Polyester","Nylon"],
-        "✨ Style":["Casual","School","Travel","Streetwear"],
-        "💧 Water Resistance":["Standard","Water Resistant"]
+        "Colour":["Black","Grey","Blue","Purple","Green"],
+        "Capacity":["15L","20L","25L","30L"],
+        "Material":["Canvas","Polyester","Nylon"],
+        "Style":["Casual","School","Travel","Streetwear"],
+        "Water Resistance":["Yes","No"]
     }
 },
 
 {
+    category:"accessories",
     name:"Sunglasses",
     price:599,
     emoji:"🕶️",
 
     options:{
-        "🎨 Frame Colour":["Black","Brown","Silver","Gold"],
-        "🕶️ Lens Colour":["Black","Blue","Brown","Clear"],
-        "📏 Frame Size":["Small","Medium","Large"],
-        "✨ Style":["Classic","Retro","Sport","Street"],
-        "☀️ Lens Type":["Standard","UV Protected"]
+        "Frame":["Black","Brown","Silver","Gold"],
+        "Lens":["Black","Blue","Brown","Clear"],
+        "Size":["Small","Medium","Large"],
+        "Style":["Classic","Retro","Sport","Street"]
     }
 },
 
 {
+    category:"accessories",
     name:"Crossbody Bag",
     price:899,
     emoji:"👜",
 
     options:{
-        "🎨 Colour":["Black","Brown","Beige","White"],
-        "📏 Size":["Small","Medium","Large"],
-        "🧵 Material":["Leather","Canvas","Polyester"],
-        "✨ Style":["Casual","Streetwear","Travel"],
-        "🔒 Strap":["Adjustable","Fixed"]
+        "Colour":["Black","Brown","Beige","White"],
+        "Size":["Small","Medium","Large"],
+        "Material":["Leather","Canvas","Polyester"],
+        "Style":["Casual","Streetwear","Travel"],
+        "Strap":["Adjustable","Fixed"]
     }
 },
 
 {
+    category:"accessories",
     name:"Wallet",
     price:499,
     emoji:"👛",
 
     options:{
-        "🎨 Colour":["Black","Brown","Blue","Tan"],
-        "🧵 Material":["Leather Look","Canvas","Fabric"],
-        "📏 Size":["Compact","Regular","Large"],
-        "💳 Card Slots":["4","6","8","10+"],
-        "✨ Style":["Classic","Minimal","Modern"]
+        "Colour":["Black","Brown","Blue","Tan"],
+        "Material":["Leather Look","Canvas","Fabric"],
+        "Size":["Compact","Regular","Large"],
+        "Card Slots":["4","6","8","10+"],
+        "Style":["Classic","Minimal","Modern"]
     }
 },
 
 {
+    category:"accessories",
     name:"Fashion Belt",
     price:449,
     emoji:"🧷",
 
     options:{
-        "🎨 Colour":["Black","Brown","Tan","White"],
-        "📏 Size":["28","30","32","34","36","38"],
-        "🧵 Material":["Leather Look","Canvas"],
-        "🔒 Buckle":["Silver","Gold","Black"],
-        "✨ Style":["Classic","Casual","Streetwear"]
+        "Colour":["Black","Brown","Tan","White"],
+        "Size":["28","30","32","34","36","38"],
+        "Material":["Leather Look","Canvas"],
+        "Buckle":["Silver","Gold","Black"],
+        "Style":["Classic","Casual","Streetwear"]
     }
 },
 
 {
+    category:"accessories",
     name:"Sports Socks",
     price:299,
     emoji:"🧦",
 
     options:{
-        "🎨 Colour":["Black","White","Grey","Blue"],
-        "📏 Size":["S","M","L","XL"],
-        "🧵 Material":["Cotton","Polyester Blend"],
-        "✨ Style":["Ankle","Crew","Sports"]
+        "Colour":["Black","White","Grey","Blue"],
+        "Size":["S","M","L","XL"],
+        "Material":["Cotton","Polyester Blend"],
+        "Style":["Ankle","Crew","Sports"]
     }
 }
 
 ];
 
 
-/* =========================
-   DISPLAY
-========================= */
+let cart = [];
 
-function displayProducts(list,id){
+let currentProduct = null;
 
-    const container =
-        document.getElementById(id);
+let selectedOptions = {};
 
-    list.forEach((product,index)=>{
+let quantity = 1;
 
-        const card =
-            document.createElement("div");
 
-        card.className = "product";
+/* SHOW PRODUCTS */
 
-        card.innerHTML = `
+function showCategory(category){
 
-            <div class="product-image">
-                ${product.emoji}
-            </div>
+    const box =
+        document.getElementById("products");
 
-            <div class="product-info">
+    box.innerHTML = "";
 
-                <h3>${product.name}</h3>
+    products
+        .filter(product =>
+            category === "all" ||
+            product.category === category
+        )
+        .forEach(product => {
 
-                <p>Fully customizable</p>
+            const card =
+                document.createElement("div");
 
-                <div class="price">
-                    ₹${product.price}
+            card.className = "product";
+
+            card.innerHTML = `
+
+                <div class="productImage">
+                    ${product.emoji}
                 </div>
 
-                <button class="choose"
-                    onclick="openProduct(
-                        ${product.categoryId || 0},
-                        ${index}
-                    )">
+                <div class="productInfo">
 
-                    CUSTOMIZE →
+                    <h3>${product.name}</h3>
 
-                </button>
+                    <p>
+                        Customizable
+                    </p>
 
-            </div>
-        `;
+                    <div class="price">
+                        ₹${product.price}
+                    </div>
 
-        container.appendChild(card);
+                    <button>
+                        CUSTOMIZE →
+                    </button>
 
-    });
-}
+                </div>
+            `;
 
+            card.querySelector("button")
+                .onclick = () =>
+                    openProduct(product);
 
-/*
-   Instead of relying on category IDs,
-   create one combined product list.
-*/
-
-let allProducts = [];
-
-function prepareProducts(){
-
-    allProducts = [
-        ...men,
-        ...women,
-        ...kids,
-        ...accessories
-    ];
-
-    document.querySelectorAll(".choose")
-        .forEach((button,index)=>{
-            button.onclick = () =>
-                openProductByIndex(index);
+            box.appendChild(card);
         });
 }
 
 
-function render(){
+/* OPEN PRODUCT */
 
-    renderList(men,"menProducts");
-    renderList(women,"womenProducts");
-    renderList(kids,"kidsProducts");
-    renderList(accessories,"accessoryProducts");
-
-    prepareProducts();
-}
-
-
-function renderList(list,id){
-
-    const container =
-        document.getElementById(id);
-
-    list.forEach(product=>{
-
-        const card =
-            document.createElement("div");
-
-        card.className="product";
-
-        card.innerHTML=`
-
-        <div class="product-image">
-            ${product.emoji}
-        </div>
-
-        <div class="product-info">
-
-            <h3>${product.name}</h3>
-
-            <p>Many customization options</p>
-
-            <div class="price">
-                ₹${product.price}
-            </div>
-
-            <button class="choose">
-                CUSTOMIZE →
-            </button>
-
-        </div>
-        `;
-
-        card.querySelector("button")
-            .onclick=()=>{
-                openProductObject(product);
-            };
-
-        container.appendChild(card);
-    });
-}
-
-
-/* =========================
-   PRODUCT CUSTOMIZATION
-========================= */
-
-function openProductObject(product){
+function openProduct(product){
 
     currentProduct = product;
 
@@ -585,121 +454,127 @@ function openProductObject(product){
 
     quantity = 1;
 
-    document.getElementById("productModal")
-        .style.display="block";
-
-    document.getElementById("productEmoji")
-        .textContent=product.emoji;
-
-    document.getElementById("productName")
-        .textContent=product.name;
-
-    document.getElementById("productPrice")
-        .textContent="₹"+product.price;
-
     document.getElementById("quantity")
-        .textContent=quantity;
+        .textContent = 1;
+
+    document.getElementById("popupEmoji")
+        .textContent = product.emoji;
+
+    document.getElementById("popupName")
+        .textContent = product.name;
+
+    document.getElementById("popupPrice")
+        .textContent = "₹" + product.price;
 
 
-    const box =
-        document.getElementById("productOptions");
+    const options =
+        document.getElementById("options");
 
-    box.innerHTML="";
+    options.innerHTML = "";
 
 
     Object.entries(product.options)
-        .forEach(([name,values])=>{
+        .forEach(([name, values]) => {
 
             const div =
                 document.createElement("div");
 
-            div.className="option";
+            div.className = "option";
 
-            div.innerHTML=`
+            div.innerHTML = `
 
-                <div class="option-title">
+                <div class="optionTitle">
                     ${name}
                 </div>
 
-                <div class="option-buttons"></div>
+                <div class="optionButtons"></div>
             `;
 
+
             const buttons =
-                div.querySelector(".option-buttons");
+                div.querySelector(".optionButtons");
 
 
-            values.forEach(value=>{
+            values.forEach(value => {
 
                 const button =
                     document.createElement("button");
 
-                button.className="option-button";
+                button.textContent = value;
 
-                button.textContent=value;
 
-                button.onclick=()=>{
+                button.onclick = () => {
 
-                    selectedOptions[name]=value;
+                    selectedOptions[name] =
+                        value;
 
                     buttons
                         .querySelectorAll("button")
-                        .forEach(b=>
-                            b.classList.remove("selected")
+                        .forEach(b =>
+                            b.classList.remove(
+                                "selected"
+                            )
                         );
 
-                    button.classList.add("selected");
+                    button.classList.add(
+                        "selected"
+                    );
                 };
 
+
                 buttons.appendChild(button);
+
             });
 
-            box.appendChild(div);
+
+            options.appendChild(div);
+
         });
-}
 
 
-function openProductByIndex(index){
-    openProductObject(allProducts[index]);
+    document.getElementById("productPopup")
+        .style.display = "block";
 }
 
 
 function closeProduct(){
 
-    document.getElementById("productModal")
-        .style.display="none";
+    document.getElementById("productPopup")
+        .style.display = "none";
 }
 
+
+/* QUANTITY */
 
 function changeQuantity(amount){
 
-    quantity+=amount;
+    quantity += amount;
 
-    if(quantity<1)
-        quantity=1;
+    if(quantity < 1)
+        quantity = 1;
 
-    if(quantity>20)
-        quantity=20;
+    if(quantity > 20)
+        quantity = 20;
 
     document.getElementById("quantity")
-        .textContent=quantity;
+        .textContent = quantity;
 }
 
 
-/* =========================
-   CART
-========================= */
+/* ADD TO CART */
 
 function addToCart(){
 
-    const required =
+    const optionNames =
         Object.keys(currentProduct.options);
 
-    for(const option of required){
 
-        if(!selectedOptions[option]){
+    for(const name of optionNames){
+
+        if(!selectedOptions[name]){
 
             alert(
-                "Please select: "+option
+                "Please select " + name
             );
 
             return;
@@ -709,15 +584,12 @@ function addToCart(){
 
     cart.push({
 
-        name:currentProduct.name,
+        product: currentProduct,
 
-        price:currentProduct.price,
+        options: {...selectedOptions},
 
-        emoji:currentProduct.emoji,
+        quantity: quantity
 
-        options:{...selectedOptions},
-
-        quantity:quantity
     });
 
 
@@ -729,130 +601,135 @@ function addToCart(){
 }
 
 
+/* UPDATE CART */
+
 function updateCart(){
 
-    const container =
+    const box =
         document.getElementById("cartItems");
 
-    container.innerHTML="";
+    box.innerHTML = "";
 
-    let subtotal=0;
-    let count=0;
+    let subtotal = 0;
+
+    let count = 0;
 
 
-    cart.forEach((item,index)=>{
+    cart.forEach((item,index) => {
 
-        subtotal +=
-            item.price * item.quantity;
+        const price =
+            item.product.price *
+            item.quantity;
+
+        subtotal += price;
 
         count += item.quantity;
-
-
-        let options="";
-
-        Object.entries(item.options)
-            .forEach(([key,value])=>{
-
-                options +=
-                    `<small>${key}: ${value}</small>`;
-            });
 
 
         const div =
             document.createElement("div");
 
-        div.className="cart-item";
+        div.className = "cartItem";
 
-        div.innerHTML=`
 
-            <div class="cart-emoji">
-                ${item.emoji}
-            </div>
+        let options = "";
 
-            <div class="cart-details">
+        Object.entries(item.options)
+            .forEach(([key,value]) => {
 
-                <b>${item.name}</b>
+                options +=
+                    `<small>
+                        ${key}: ${value}
+                    </small>`;
+            });
 
-                ${options}
 
-                <small>
-                    ₹${item.price} each
-                </small>
+        div.innerHTML = `
 
-                <div class="cart-controls">
+            <h3>
+                ${item.product.emoji}
+                ${item.product.name}
+            </h3>
 
-                    <button
-                        onclick="cartQuantity(${index},-1)">
-                        −
-                    </button>
+            ${options}
 
-                    <span>${item.quantity}</span>
+            <b>
+                ₹${price}
+            </b>
 
-                    <button
-                        onclick="cartQuantity(${index},1)">
-                        +
-                    </button>
+            <div class="cartControls">
 
-                    <button
-                        class="remove"
-                        onclick="removeCart(${index})">
-                        Remove
-                    </button>
+                <button
+                    onclick="cartChange(${index},-1)">
+                    −
+                </button>
 
-                </div>
+                <span>
+                    ${item.quantity}
+                </span>
+
+                <button
+                    onclick="cartChange(${index},1)">
+                    +
+                </button>
+
+                <button
+                    onclick="removeItem(${index})">
+                    Remove
+                </button>
 
             </div>
         `;
 
-        container.appendChild(div);
+
+        box.appendChild(div);
+
     });
 
 
-    if(cart.length===0){
+    let delivery = 0;
 
-        container.innerHTML=
-            `<p style="text-align:center;padding:40px">
-                Your cart is empty 🛒
-            </p>`;
-    }
-
-
-    let delivery=0;
-
-    if(subtotal>0 && subtotal<2000)
-        delivery=99;
+    if(subtotal > 0 && subtotal < 2000)
+        delivery = 99;
 
 
     const total =
-        subtotal+delivery;
+        subtotal + delivery;
 
 
     document.getElementById("cartCount")
-        .textContent=count;
+        .textContent = count;
 
     document.getElementById("subtotal")
-        .textContent=subtotal;
+        .textContent = subtotal;
 
     document.getElementById("delivery")
-        .textContent=delivery;
+        .textContent = delivery;
 
     document.getElementById("total")
-        .textContent=total;
+        .textContent = total;
 }
 
 
-function cartQuantity(index,amount){
+/* CART QUANTITY */
 
-    cart[index].quantity+=amount;
+function cartChange(index,amount){
 
-    if(cart[index].quantity<=0)
+    cart[index].quantity += amount;
+
+    if(cart[index].quantity <= 0){
+
         cart.splice(index,1);
+
+    }
 
     updateCart();
 }
 
 
-function removeCart(index){
+/* REMOVE */
+
+function removeItem(index){
 
     cart.splice(index,1);
 
@@ -860,65 +737,68 @@ function removeCart(index){
 }
 
 
+/* CART OPEN */
+
 function openCart(){
 
-    document.getElementById("cart")
+    document.getElementById("cartPanel")
         .classList.add("open");
 }
 
 
 function closeCart(){
 
-    document.getElementById("cart")
+    document.getElementById("cartPanel")
         .classList.remove("open");
 }
 
 
-/* =========================
-   CHECKOUT
-========================= */
+/* CHECKOUT */
 
-function openCheckout(){
+function checkout(){
 
-    if(cart.length===0){
+    if(cart.length === 0){
 
-        alert("Your cart is empty.");
+        alert("Your cart is empty!");
 
         return;
     }
 
-    document.getElementById("checkoutModal")
-        .style.display="block";
+
+    document.getElementById("checkoutPopup")
+        .style.display = "block";
 }
 
 
 function closeCheckout(){
 
-    document.getElementById("checkoutModal")
-        .style.display="none";
+    document.getElementById("checkoutPopup")
+        .style.display = "none";
 }
 
+
+/* PLACE ORDER */
 
 function placeOrder(){
 
     const name =
-        document.getElementById("customerName")
+        document.getElementById("name")
         .value.trim();
 
     const phone =
-        document.getElementById("customerPhone")
+        document.getElementById("phone")
         .value.trim();
 
     const address =
-        document.getElementById("customerAddress")
+        document.getElementById("address")
         .value.trim();
 
     const city =
-        document.getElementById("customerCity")
+        document.getElementById("city")
         .value.trim();
 
     const pin =
-        document.getElementById("customerPin")
+        document.getElementById("pin")
         .value.trim();
 
     const payment =
@@ -927,10 +807,17 @@ function placeOrder(){
         );
 
 
-    if(!name || !phone || !address ||
-       !city || !pin){
+    if(
+        !name ||
+        !phone ||
+        !address ||
+        !city ||
+        !pin
+    ){
 
-        alert("Please fill all delivery details.");
+        alert(
+            "Please fill in all delivery details."
+        );
 
         return;
     }
@@ -938,19 +825,22 @@ function placeOrder(){
 
     if(!payment){
 
-        alert("Please select a payment method.");
+        alert(
+            "Please select a payment method."
+        );
 
         return;
     }
 
 
     alert(
-        "🎉 Demo order placed successfully!\n\n"+
-        "Payment: "+payment.value
+        "🎉 DEMO ORDER PLACED!\n\n" +
+        "Thank you, " + name + "!\n" +
+        "Payment: " + payment.value
     );
 
 
-    cart=[];
+    cart = [];
 
     updateCart();
 
@@ -960,13 +850,6 @@ function placeOrder(){
 }
 
 
-function scrollToProducts(){
+/* START */
 
-    document.getElementById("men")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-}
-
-
-render();
+showCategory("all");
